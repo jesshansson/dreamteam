@@ -1,0 +1,16 @@
+.header {
+  background-color: #1b3c73;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f0cca4;
+  border-bottom: 2px solid #1e0335;
+  width: 100%;
+
+  h1 {
+    font-size: 2rem;
+  }
+}
