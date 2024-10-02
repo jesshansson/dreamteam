@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
+
 export function Header() {
   return (
     <header className="header">
-      <h1>Dream Team</h1>
+      <Link to={"/"}> <h1>Dream Team</h1></Link>
     </header>
   );
 }

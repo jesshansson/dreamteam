@@ -1,0 +1,44 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Square+Peg&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
+
+.hero-card {
+  background-color: #dedfe9;
+  padding: 2rem 5rem;
+  margin-top: 2rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 0px 27px -7px rgb(0, 0, 0);
+
+  p {
+    margin: 0.5rem 0;
+    font-family: "Playpen Sans", cursive;
+  }
+
+  h1 {
+    font-size: 3rem;
+    /* font-family: "Playpen Sans", cursive; */
+    /* font-optical-sizing: auto; */
+    font-family: "Oooh Baby", cursive;
+    font-weight: 600;
+    text-align: center;
+    margin: 1.5rem;
+  }
+
+  img {
+    width: 10rem;
+    height: auto;
+    align-self: center;
+  }
+}
+
+/* font-family: "Cabin Sketch", sans-serif; */
+/* font-family: "Caveat", cursive; */
+/* font-family: "Cedarville Cursive", cursive; */
+/* font-family: "Square Peg", cursive; */
+/* font-family: "Annie Use Your Telescope", cursive; */
+/* @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Square+Peg&display=swap"); */

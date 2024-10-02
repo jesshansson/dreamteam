@@ -42,3 +42,9 @@ export interface IHero {
     lg: string;
   };
 }
+
+export interface HeroCardProps {
+  detailed?: boolean;
+  hero: IHero;
+  showSeeDetails?: boolean;
+}

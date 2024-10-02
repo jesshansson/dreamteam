@@ -11,6 +11,13 @@
   width: 100%;
 
   h1 {
-    font-size: 2rem;
+    font-size: 3rem;
+    font-family: "Oooh Baby", cursive;
+    margin: 1rem 2rem;
+  }
+
+  a {
+    color: #f0cca4;
+    text-decoration: none;
   }
 }

@@ -5,27 +5,14 @@
   color: #242424;
   background-color: #e7e4e4;
 } */
+
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap");
+
 html,
 body,
 #root {
   height: 100%;
-}
-
-.hero-card {
-  background-color: #dedfe9;
-  padding: 2rem 5rem;
-  margin-top: 2rem;
-  width: 30rem;
-  display: flex;
-  flex-direction: column;
-
-  p {
-    margin: .5rem 0;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
 }
 
 body {
@@ -42,7 +29,7 @@ body {
   background-position: center;
   box-sizing: border-box;
   overflow-x: hidden;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 main {
   display: flex;
@@ -69,4 +56,15 @@ button {
 }
 button:hover {
   border-color: #646cff;
+}
+
+.not-found {
+  color: #fefcf3;
+  margin-top: 3rem;
+  p {
+    font-size: 2rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
 }
