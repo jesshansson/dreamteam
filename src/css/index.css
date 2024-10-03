@@ -30,6 +30,7 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
   /* min-height: 100vh; */
+  color: #f0cca4;
 }
 main {
   display: flex;
@@ -50,16 +51,11 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
 
 .not-found {
-  color: #fefcf3;
   margin-top: 3rem;
   p {
     font-size: 2rem;

@@ -24,3 +24,10 @@ dist-ssr
 *.sw?
 StartPageMarvel.tsx
 test.txt
+styles.txt
+DeleteHero.tsx
+FetchNewHeroBtn.tsx
+SearchDisplay.tsx
+SearchForm.tsx
+AddHeroPage.tsx
+SearchPage.tsx

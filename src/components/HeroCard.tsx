@@ -1,69 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { HeroCardProps, IHero } from "../interface";
-// import { Link } from "react-router-dom";
-
-// // Dynamisk funktion som genererar ett slumpmässigt index
-// function getRandomId(length: number): number {
-//   return Math.floor(Math.random() * length);
-// }
-
-// export function HeroCard({ detailed = false }: HeroCardProps) {
-//   const [heroes, setHeroes] = useState<IHero[]>([]); // Array för att lagra alla hjältar
-//   const [hero, setHero] = useState<IHero | null>(null); // Enstaka hjälte
-//   const [loading, setLoading] = useState(true);
-
-//   const fetchHeroes = async () => {
-//     const API_URL = "https://akabab.github.io/superhero-api/api/all.json"; // API för att hämta alla hjältar
-//     try {
-//       const response = await fetch(API_URL);
-//       const data = await response.json();
-//       setHeroes(data); // Lagra alla hämtade hjältar i state
-//       setLoading(false); // Stäng av laddningsstatus när datan är hämtad
-//     } catch (error) {
-//       console.error("Error fetching heroes:", error);
-//       setLoading(false);
-//     }
-//   };
-
-//   //Hämta alla hjältar vid första renderingen
-//   useEffect(() => {
-//     fetchHeroes();
-//   }, []);
-
-//   // När hjältarna är hämtade, slumpa fram en hjälte från listan
-//   useEffect(() => {
-//     if (heroes.length > 0) {
-//       const randomIndex = getRandomId(heroes.length); // Använd längden på listan för att slumpa ett index
-//       setHero(heroes[randomIndex]); // Sätt den slumpmässiga hjälten som ska visas
-//     }
-//   }, [heroes]); // Körs när listan med hjältar ändras
-
-//   return loading ? (
-//     <p>Loading superhero...</p>
-//   ) : hero ? (
-//     <main>
-//       <article className="hero-card">
-//         <h1>{hero.name}</h1>
-//         <img src={hero.images.lg} alt={hero.name} />
-//         <p>Full name: {hero.biography.fullName}</p>
-//         <Link to={`/hero/${hero.slug}`}>View Details</Link>
-//         {detailed && (
-//           <>
-//             <p>Aliases: {hero.biography.aliases}</p>
-//             <p>Alignment: {hero.biography.alignment}</p>
-//             <p>Occupation: {hero.work.occupation}</p>
-//             <p>Intelligence: {hero.powerstats.intelligence}</p>
-//             <p>Strength: {hero.powerstats.strength}</p>
-//             <p>Speed: {hero.powerstats.speed}</p>
-//           </>
-//         )}
-//       </article>
-//     </main>
-//   ) : (
-//     <p>No hero found.</p>
-//   );
-// }
-
 import { Link, useParams } from "react-router-dom";
 import { IHero } from "../interface";
 import { useState, useEffect } from "react";
@@ -106,6 +40,7 @@ export function HeroCard({ detailed = false, showSeeDetails = true }: HeroCardPr
         {detailed && (
           <>
             <p>Occupation: {hero.work.occupation}</p>
+            <p>Race:{hero.appearance.race} </p>
             <p>
               <strong>Powerstats:</strong>
             </p>

@@ -1,23 +1,28 @@
+@import url(https://fonts.bunny.net/css?family=combo:400);
+
 .header {
   background-color: #1b3c73;
   margin: 0;
   padding: 0.5rem 1rem;
   top: 0;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  color: #f0cca4;
+
   border-bottom: 2px solid #1e0335;
   width: 100%;
 
   h1 {
     font-size: 3rem;
     font-family: "Oooh Baby", cursive;
+    font-weight: 600;
     margin: 1rem 2rem;
   }
 
   a {
     color: #f0cca4;
     text-decoration: none;
+    font-weight: 400;
+    font-family: "Combo", display;
   }
 }

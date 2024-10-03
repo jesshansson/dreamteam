@@ -1,0 +1,30 @@
+.my-team-card {
+  background-color: #dedfe9;
+  margin: 1rem;
+  color: black;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 0px 27px -7px rgb(0, 0, 0);
+  color: black;
+
+  p {
+    margin: 0.5rem 0;
+    font-family: "Playpen Sans", cursive;
+  }
+}
+
+.created-heroes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Oooh Baby", cursive;
+}

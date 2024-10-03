@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import { App } from "./components";
-import { NotFound, StartPage } from "./pages";
+import { AddHeroPage, MyTeam, NotFound, StartPage } from "./pages";
 import { HeroDetails } from "./pages/HeroDetails";
 
 export const router = createBrowserRouter(
@@ -8,19 +8,13 @@ export const router = createBrowserRouter(
     <Route element={<App />} path="/">
       <Route index element={<StartPage />} />
       <Route path="hero/:slug" element={<HeroDetails />} />
+      <Route element={<MyTeam />} path="my-team" />
+      <Route element={<AddHeroPage />} path="add-hero" />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
 
-// <Route index element={<StartPage />} />
-// <Route path="*" element={<NotFound />} />
-//<Route element={<MyTeam />} path="my-team" />
+//
 // <Route element={<SearchPage />} path="search" />
-// <Route element={<AddHero />} path="add-hero" />
-// <Route
-//   path="hero/:id"
-//   element={<HeroDetails />}
-//   loader={fetchDataFromId}
-//   errorElement={<NotFound />}
-// />
+//

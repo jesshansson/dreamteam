@@ -41,6 +41,7 @@ export interface IHero {
     md: string;
     lg: string;
   };
+  isCustom?: boolean;
 }
 
 export interface HeroCardProps {
