@@ -1,22 +1,36 @@
-@import url(https://fonts.bunny.net/css?family=combo:400);
-
 .header {
   background-color: #1b3c73;
   margin: 0;
   padding: 0.5rem 1rem;
   top: 0;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
-
+  height: 6rem;
   border-bottom: 2px solid #1e0335;
-  width: 100%;
+
+  .logo-title {
+    display: flex;
+    flex-direction: row;
+  }
 
   h1 {
     font-size: 3rem;
     font-family: "Oooh Baby", cursive;
     font-weight: 600;
-    margin: 1rem 2rem;
+    margin-right: 2rem;
+  }
+
+  .header-links {
+    margin-right: 2rem;
+    display: flex;
+    gap: 2rem;
+
+    a {
+      font-size: 1.2rem;
+      
+    }
   }
 
   a {
@@ -24,5 +38,11 @@
     text-decoration: none;
     font-weight: 400;
     font-family: "Combo", display;
+  }
+
+  img {
+    width: 8rem;
+    height: auto;
+    margin: 0;
   }
 }

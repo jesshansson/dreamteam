@@ -51,6 +51,7 @@ export const HeroProvider = ({ children }: { children: ReactNode }) => {
     const updatedCustomHeroes = [...customHeroes, newHero]; // Lägg till ny hjälte
     setCustomHeroes(updatedCustomHeroes); // Uppdatera state
     saveCustomHeroesToLocalStorage(updatedCustomHeroes); // Spara endast skapade hjältar
+    console.log("Custom heroes after addition:", updatedCustomHeroes);
   };
 
   return (

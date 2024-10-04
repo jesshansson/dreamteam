@@ -10,19 +10,21 @@ export function MyTeam() {
 
   return (
     <>
-      <h1>My Team</h1>
-      <ul className="saved-heroes"></ul>
-      <ul className="created-heroes">
-        {customHeroes.map((hero) => (
-          <li className="my-team-card" key={hero.id}>
-            <h2>{hero.name}</h2>
-            <p>Alignment: {hero.biography.alignment}</p>
-          </li>
-        ))}
-      </ul>
-      <Link to={"/add-hero"}>
-        <button>Add a superhero</button>
-      </Link>
+      <main className="my-team-container">
+        <h1>My Team</h1>
+        <ul className="saved-heroes"></ul>
+        <ul className="created-heroes">
+          {customHeroes.map((hero) => (
+            <li className="my-team-card" key={hero.id}>
+              <h2>{hero.name}</h2>
+              <p>Alignment: {hero.biography.alignment}</p>
+            </li>
+          ))}
+        </ul>
+        <Link to={"/add-hero"}>
+          <button>Add a superhero</button>
+        </Link>
+      </main>
     </>
   );
 }

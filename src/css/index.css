@@ -1,13 +1,8 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #242424;
-  background-color: #e7e4e4;
-} */
-
 @import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap");
+@import url(https://fonts.bunny.net/css?family=combo:400);
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
+
 
 html,
 body,
@@ -17,7 +12,6 @@ body,
 
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  /* line-height: 1.5; */
   font-weight: 400;
   color: black;
   background-color: #fefcf3;
@@ -50,9 +44,11 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
+  font-family: "Playpen Sans", cursive;
   cursor: pointer;
   transition: border-color 0.25s;
+  box-shadow: 0px 0px 27px -7px rgb(0, 0, 0);
+  background-color: #dedfe9;
 }
 
 .not-found {
@@ -63,4 +59,8 @@ button {
   h1 {
     font-size: 3rem;
   }
+}
+
+.new-hero-btn {
+  margin: 2rem 0;
 }

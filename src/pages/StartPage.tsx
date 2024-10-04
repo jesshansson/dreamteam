@@ -1,23 +1,29 @@
 import { HeroCard } from "../components/HeroCard";
 import { useHeroes } from "../context/HeroContext";
+import { useState, useEffect } from "react";
+import { FetchNewHeroBtn } from "../components/FetchNewHeroBtn";
+import { IHero } from "../interface";
 
 export function StartPage() {
-  const { loading } = useHeroes();
+  const { heroes, loading } = useHeroes();
+  const [currentHero, setCurrentHero] = useState<IHero | null>(null);
 
-  // useEffect(() => {
-  //   console.log("Rendering StartPage, loading:", loading);
-  //   if (!loading) {
-  //     console.log("Heroes to display:", heroes);
-  //   }
-  // }, [loading, heroes]);
+  //När komponenten laddas första gången, används useEffect för att slumpa fram en hjälte från listan över hjältar:
+  useEffect(() => {
+    if (heroes.length > 0) {
+      const randomIndex = Math.floor(Math.random() * heroes.length);
+      setCurrentHero(heroes[randomIndex]); //Den slumpade hjälten sätts som currenthero
+    }
+  }, [heroes]);
 
   if (loading) {
-    return <p>Loading superhero...</p>; // Visa laddningsmeddelande om loading är true
+    return <p>Loading superhero...</p>;
   }
 
   return (
-    <>
-      <HeroCard />
-    </>
+    <main>
+      {currentHero ? <HeroCard hero={currentHero} /> : <p>No hero found.</p>}
+      <FetchNewHeroBtn setHero={setCurrentHero} />
+    </main>
   );
 }
