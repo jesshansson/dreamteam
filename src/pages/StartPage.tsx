@@ -22,7 +22,11 @@ export function StartPage() {
 
   return (
     <main>
-      {currentHero ? <HeroCard hero={currentHero} /> : <p>No hero found.</p>}
+      {currentHero ? (
+        <HeroCard hero={currentHero} showAddToFavorites={true} />
+      ) : (
+        <p>No hero found.</p>
+      )}
       <FetchNewHeroBtn setHero={setCurrentHero} />
     </main>
   );

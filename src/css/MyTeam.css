@@ -19,7 +19,8 @@
   padding: 0 2rem;
 }
 
-.created-heroes {
+.created-heroes,
+.favorite-heroes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
@@ -48,4 +49,24 @@ h1 {
 
 .my-team-add-btn {
   margin: 2rem 0 5rem;
+}
+
+.remove-btn {
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.356);
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  width: fit-content;
+  align-self: center;
+}
+
+.remove-btn:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 757px) {
+  .created-heroes,
+  .favorite-heroes {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,0 +1,30 @@
+.add-hero-form {
+  display: flex;
+  background-color: #dedfe9;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  width: 100%;
+  max-width: 30rem;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 0px 27px -7px rgb(0, 0, 0);
+  color: black;
+  align-items: center;
+
+  p {
+    padding: 0 2rem;
+  }
+  button {
+    margin-top: 3rem;
+    align-self: center;
+    justify-self: center;
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.356);
+
+  }
+}
+
+label {
+  margin: 0 1rem 0 0;
+  font-weight: 600;
+}

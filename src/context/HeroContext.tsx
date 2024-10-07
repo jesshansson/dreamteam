@@ -3,10 +3,12 @@ import { IHero } from "../interface";
 
 // Definiera vilken typ av data som Context ska hantera, inklusive funktionen för att lägga till en hjälte
 interface HeroContextData {
-  heroes: IHero[];
-  customHeroes: IHero[];
+  heroes: IHero[]; // Hjältar från API
+  customHeroes: IHero[]; // Endast skapade hjältar
+  teamHeroes: IHero[]; // Alla hjältar i "My Team" (både skapade och favoritmarkerade från API)
   loading: boolean;
-  addHero: (newHero: IHero) => void; // Komponenter som använder context kan anropa funktionen.
+  addHeroToTeam: (newHero: IHero) => void; // Funktion som komponenter kan anropa för att lägga till en hjälte i teamet
+  removeHeroFromTeam: (heroId: number) => void; // Funktion för att ta bort en hjälte från teamet
 }
 
 // Skapa Context
@@ -16,18 +18,32 @@ const HeroContext = createContext<HeroContextData | undefined>(undefined); // Om
 export const HeroProvider = ({ children }: { children: ReactNode }) => {
   const [heroes, setHeroes] = useState<IHero[]>([]);
   const [customHeroes, setCustomHeroes] = useState<IHero[]>([]); // Skapade hjältar
+  const [teamHeroes, setTeamHeroes] = useState<IHero[]>([]); // Alla hjältar i teamet (favoriter och skapade
   const [loading, setLoading] = useState(true);
 
-  // Spara endast skapade hjältar till local storage
+  // Spara favoritmarkerade hjältar i localStorage
+  const saveTeamHeroesToLocalStorage = (data: IHero[]) => {
+    localStorage.setItem("teamHeroes", JSON.stringify(data));
+  };
+
+  // Spara endast skapade hjältar i local storage
   const saveCustomHeroesToLocalStorage = (data: IHero[]) => {
     localStorage.setItem("customHeroes", JSON.stringify(data));
   };
 
-  // Hämta hjältar från local storage när sidan laddas
+  // Hämta hjältar från localStorage när sidan laddas
   useEffect(() => {
     const storedCustomHeroes = localStorage.getItem("customHeroes");
+    const storedTeamHeroes = localStorage.getItem("teamHeroes");
+
     if (storedCustomHeroes) {
-      setCustomHeroes(JSON.parse(storedCustomHeroes)); // Hämta skapade hjältar från local storage
+      const parsedCustomHeroes = JSON.parse(storedCustomHeroes); //Konvertera JSON till array
+      setCustomHeroes(parsedCustomHeroes); // Återställ skapade hjältar från localStorage
+      setTeamHeroes(parsedCustomHeroes); // Lägg till skapade hjältar i teamet
+    }
+
+    if (storedTeamHeroes) {
+      setTeamHeroes(JSON.parse(storedTeamHeroes)); // Hämta teamhjältar från localStorage
     }
 
     // Hämta alla hjältar från API:t
@@ -46,16 +62,37 @@ export const HeroProvider = ({ children }: { children: ReactNode }) => {
     fetchHeroes();
   }, []);
 
-  // Funktion för att lägga till en ny hjälte
-  const addHero = (newHero: IHero) => {
-    const updatedCustomHeroes = [...customHeroes, newHero]; // Lägg till ny hjälte
-    setCustomHeroes(updatedCustomHeroes); // Uppdatera state
-    saveCustomHeroesToLocalStorage(updatedCustomHeroes); // Spara endast skapade hjältar
-    console.log("Custom heroes after addition:", updatedCustomHeroes);
+  // Funktion för att lägga till en hjälte till teamet (både skapade och favorithjältar)
+  const addHeroToTeam = (newHero: IHero) => {
+    const updatedTeamHeroes = [...teamHeroes, newHero];
+    setTeamHeroes(updatedTeamHeroes);
+
+    // Spara alla teamhjältar (både skapade och favorithjältar) i localStorage
+    saveTeamHeroesToLocalStorage(updatedTeamHeroes);
+
+    // Om hjälten är skapad av användaren, spara även i customHeroes och localStorage
+    if (newHero.isCustom) {
+      const updatedCustomHeroes = [...customHeroes, newHero];
+      setCustomHeroes(updatedCustomHeroes); // Uppdatera customHeroes
+      saveCustomHeroesToLocalStorage(updatedCustomHeroes); // Spara skapade hjältar i localStorage
+    }
+  };
+
+  const removeHeroFromTeam = (heroId: number) => {
+    const updatedTeamHeroes = teamHeroes.filter((hero) => hero.id !== heroId);
+    setTeamHeroes(updatedTeamHeroes); // Uppdatera teamHeroes i state
+    saveTeamHeroesToLocalStorage(updatedTeamHeroes); // Uppdatera localStorage för teamHeroes
+
+    // Om hjälten är skapad av användaren, ta bort den från customHeroes också
+    const updatedCustomHeroes = customHeroes.filter((hero) => hero.id !== heroId);
+    setCustomHeroes(updatedCustomHeroes); // Uppdatera customHeroes i state
+    saveCustomHeroesToLocalStorage(updatedCustomHeroes); // Uppdatera localStorage för customHeroes
   };
 
   return (
-    <HeroContext.Provider value={{ heroes, loading, customHeroes, addHero }}>
+    <HeroContext.Provider
+      value={{ heroes, loading, teamHeroes, customHeroes, addHeroToTeam, removeHeroFromTeam }}
+    >
       {children}
     </HeroContext.Provider>
   );

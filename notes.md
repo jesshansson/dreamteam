@@ -1,0 +1,2 @@
+const HeroContext = createContext<HeroContextData | undefined>(undefined);
+Här skapar vi HeroContext med hjälp av createContext-funktionen från React. HeroContext är själva "behållaren" för data och funktioner som vi vill dela med våra komponenter. Vi använder en undefined som default-värde för att hantera situationer där context kanske inte är korrekt satt upp.

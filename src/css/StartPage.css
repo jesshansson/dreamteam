@@ -1,0 +1,7 @@
+.add-btn {
+  margin-top: 3rem;
+  align-self: center;
+  justify-self: center;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.356);
+}
