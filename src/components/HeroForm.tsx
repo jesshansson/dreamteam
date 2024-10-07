@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { IHero } from "../interface";
+// import defaultImg from "../assets/logo.png";
 
 interface HeroFormProps {
   onSubmit: (data: IHero) => void;
@@ -30,7 +31,12 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
       },
       work: { occupation: "", base: "" },
       connections: { groupAffiliation: "", relatives: "" },
-      images: { xs: "", sm: "", md: "", lg: "" },
+      images: {
+        xs: "/logo.png",
+        sm: "/logo.png",
+        md: "/logo.png",
+        lg: "/logo.png",
+      },
       isCustom: true, // Flagg för att indikera att hjälten är skapad av användaren
     };
 

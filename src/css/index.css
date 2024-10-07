@@ -3,7 +3,6 @@
 @import url(https://fonts.bunny.net/css?family=combo:400);
 @import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
 
-
 html,
 body,
 #root {
@@ -49,6 +48,11 @@ button {
   transition: border-color 0.25s;
   box-shadow: 0px 0px 27px -7px rgb(0, 0, 0);
   background-color: #dedfe9;
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 .not-found {

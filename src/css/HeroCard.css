@@ -1,8 +1,9 @@
 .hero-card {
   background-color: #dedfe9;
-  padding: 2rem 5rem;
-  margin: 2rem 0;
-  width: 30rem;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  width: 100%; /* Ta upp hela bredden i grid-kolumnen */
+  max-width: 30rem; /* Valfri maxbredd så att korten inte blir för breda */
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -23,7 +24,7 @@
   }
 
   img {
-    width: 10rem;
+    width: 40%;
     height: auto;
     align-self: center;
     border-radius: 5px;
@@ -31,10 +32,9 @@
   }
 
   .powerstats {
-    /* border: 1px solid black; */
     padding: 0 1rem;
     margin-top: 1rem;
-    box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.671);
+    box-shadow: 0px 0px 10px -3px rgba(23, 0, 105, 0.664);
     border-radius: 10px;
   }
 
@@ -46,5 +46,14 @@
   .alignment.bad {
     color: red;
     font-style: italic;
+  }
+
+  @media (max-width: 757px) {
+    width: 10rem;
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+    }
   }
 }

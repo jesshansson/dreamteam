@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useHeroes } from "../context/HeroContext"; // Importera useHeroes för att få tillgång till heroes
+import { HeroCard } from "../components";
 
 export function MyTeam() {
   const { customHeroes } = useHeroes(); // Hämta endast skapade hjältar från Context
@@ -16,13 +17,12 @@ export function MyTeam() {
         <ul className="created-heroes">
           {customHeroes.map((hero) => (
             <li className="my-team-card" key={hero.id}>
-              <h2>{hero.name}</h2>
-              <p>Alignment: {hero.biography.alignment}</p>
+              <HeroCard hero={hero} showSeeDetails={true} detailed={false} />
             </li>
           ))}
         </ul>
         <Link to={"/add-hero"}>
-          <button>Add a superhero</button>
+          <button className="my-team-add-btn">Add a superhero</button>
         </Link>
       </main>
     </>

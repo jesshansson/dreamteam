@@ -6,15 +6,18 @@ import { IHero } from "../interface";
 
 export function HeroDetails() {
   const { slug } = useParams(); // Hämta slug från URL:en
-  const { heroes, loading } = useHeroes(); // Hämta hjälteinformationen från Context
+  const { heroes, customHeroes, loading } = useHeroes(); // Hämta hjälteinformationen från Context
   const [hero, setHero] = useState<IHero | null>(null); // State för att lagra den valda hjälten
 
   useEffect(() => {
-    if (heroes.length > 0 && slug) {
-      const selectedHero = heroes.find((hero) => hero.slug === slug); // Hitta rätt hjälte baserat på slug
+    if ((heroes.length > 0 || customHeroes.length > 0) && slug) {
+      // Försök hitta hjälten i både heroes och customHeroes
+      const selectedHero =
+        heroes.find((hero) => hero.slug === slug) ||
+        customHeroes.find((hero) => hero.slug === slug);
       setHero(selectedHero || null); // Sätt den valda hjälten eller null om den inte finns
     }
-  }, [heroes, slug]); // Denna effect körs om heroes eller slug ändras
+  }, [heroes, customHeroes, slug]); // Denna effect körs om heroes, customHeroes eller slug ändras
 
   if (loading) {
     return <p>Loading hero details...</p>;
