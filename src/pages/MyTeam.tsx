@@ -3,10 +3,15 @@ import { useHeroes } from "../context/HeroContext"; // Importera useHeroes för 
 import { HeroCard } from "../components";
 
 export function MyTeam() {
-  const { customHeroes, teamHeroes, removeHeroFromTeam } = useHeroes(); // Hämta både skapade hjältar och team/favorithjältar
+  const { customHeroes, teamHeroes, removeHeroFromTeam, loading } = useHeroes(); // Hämta både skapade hjältar och team/favorithjältar
+  // console.log("Team heroes:", teamHeroes);
 
-  if (customHeroes.length === 0) {
-    return <p>No heroes have been added to your team yet.</p>; // Visa meddelande om inga hjältar har lagts till
+  if (loading) {
+    return <p>Loading heroes...</p>;
+  }
+
+  if (customHeroes.length === 0 && teamHeroes.length === 0) {
+    return <p>No heroes have been added to your team yet.</p>;
   }
 
   return (

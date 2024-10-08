@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IHero } from "../interface";
 import { useHeroes } from "../context/HeroContext";
 
@@ -20,9 +20,10 @@ export function HeroCard({
   onRemove,
 }: HeroCardProps) {
   const { addHeroToTeam } = useHeroes(); // Hämta funktionen för att lägga till hjältar i teamet
-
+const navigate = useNavigate();
   const handleAddToFavorites = () => {
     addHeroToTeam(hero); // Lägg till hjälten i favoriter/team
+    navigate("/my-team");
   };
   return hero ? (
     <main>

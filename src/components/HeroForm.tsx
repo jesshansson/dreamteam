@@ -8,11 +8,14 @@ interface HeroFormProps {
 
 export function HeroForm({ onSubmit }: HeroFormProps) {
   const [name, setName] = useState("");
-  // const [alias, setAlias] = useState([]);
+  const [aliases, setAliases] = useState("");
   const [fullName, setFullName] = useState("");
   const [occupation, setOccupation] = useState("");
   const [race, setRace] = useState("");
   const [alignment, setAlignment] = useState("");
+  const [intelligence, setIntelligence] = useState(0);
+  const [strength, setStrength] = useState(0);
+  const [speed, setSpeed] = useState(0);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -22,7 +25,14 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
       id: Math.random(), // Generera ett unikt id
       name: name,
       slug: name.toLowerCase().replace(/\s+/g, "-"), // Generera slug från namnet
-      powerstats: { intelligence: 0, strength: 0, speed: 0, durability: 0, power: 0, combat: 0 }, // Standardvärden
+      powerstats: {
+        intelligence: intelligence,
+        strength: strength,
+        speed: speed,
+        durability: 0,
+        power: 0,
+        combat: 0,
+      }, // Standardvärden
       appearance: {
         gender: "",
         race: race,
@@ -34,7 +44,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
       biography: {
         fullName: fullName,
         alterEgos: "",
-        aliases: [],
+        aliases: aliases.split(",").map((alias) => alias.trim()), // split(",") delar upp aliases-strängen i en array baserat på kommatecken som separator. Sedan: map() går igenom varje alias i arrayen och tillämpar trim() för att ta bort överflödiga mellanslag i början och slutet av varje alias.
         placeOfBirth: "",
         firstAppearance: "",
         publisher: "",
@@ -73,15 +83,15 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
           placeholder="Enter hero full name"
         />
       </div>
-      {/* <div>
-        <label>Alias:</label>
+      <div>
+        <label>Aliases (comma separated):</label>
         <input
           type="text"
-          value={alias}
-          onChange={(e) => setAlias(e.target.value)}
-          placeholder="Enter hero alias"
+          value={aliases}
+          onChange={(e) => setAliases(e.target.value)}
+          placeholder="Enter hero aliases, separated by commas"
         />
-      </div> */}
+      </div>
       <div>
         <label>Alignment:</label>
         <input
@@ -107,6 +117,33 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
           value={race}
           onChange={(e) => setRace(e.target.value)}
           placeholder="Enter hero race"
+        />
+      </div>
+      <div>
+        <label>Intelligence (0-100):</label>
+        <input
+          type="number"
+          value={intelligence}
+          onChange={(e) => setIntelligence(parseInt(e.target.value) || 0)} //parseInt(e.target.value) för att konvertera värdet från input-fältet (som är en string) till ett number
+          placeholder="Enter intelligence"
+        />
+      </div>
+      <div>
+        <label>Strength (0-100):</label>
+        <input
+          type="number"
+          value={strength}
+          onChange={(e) => setStrength(parseInt(e.target.value) || 0)}
+          placeholder="Enter strength"
+        />
+      </div>
+      <div>
+        <label>Speed (0-100):</label>
+        <input
+          type="number"
+          value={speed}
+          onChange={(e) => setSpeed(parseInt(e.target.value) || 0)}
+          placeholder="Enter speed"
         />
       </div>
 

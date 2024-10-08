@@ -2,8 +2,9 @@
   background-color: #dedfe9;
   padding: 1rem 2rem;
   margin: 1rem;
-  width: 100%; /* Ta upp hela bredden i grid-kolumnen */
-  max-width: 30rem; /* Valfri maxbredd så att korten inte blir för breda */
+  width: 100%; 
+  max-width: 30rem;
+  min-height: 30rem;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -16,11 +17,11 @@
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: "Oooh Baby", cursive;
     font-weight: 600;
     text-align: center;
-    margin: 1.5rem;
+    margin: 1.5rem 0;
   }
 
   img {

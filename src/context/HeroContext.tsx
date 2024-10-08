@@ -39,7 +39,6 @@ export const HeroProvider = ({ children }: { children: ReactNode }) => {
     if (storedCustomHeroes) {
       const parsedCustomHeroes = JSON.parse(storedCustomHeroes); //Konvertera JSON till array
       setCustomHeroes(parsedCustomHeroes); // Återställ skapade hjältar från localStorage
-      setTeamHeroes(parsedCustomHeroes); // Lägg till skapade hjältar i teamet
     }
 
     if (storedTeamHeroes) {
