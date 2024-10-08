@@ -20,7 +20,7 @@ export function HeroCard({
   onRemove,
 }: HeroCardProps) {
   const { addHeroToTeam } = useHeroes(); // Hämta funktionen för att lägga till hjältar i teamet
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleAddToFavorites = () => {
     addHeroToTeam(hero); // Lägg till hjälten i favoriter/team
     navigate("/my-team");
@@ -37,13 +37,22 @@ const navigate = useNavigate();
           {hero.biography.alignment.charAt(0).toUpperCase() + hero.biography.alignment.slice(1)}
         </p>
 
-        {showSeeDetails && <Link to={`/hero/${hero.slug}`}>View Details</Link>}
+        {showSeeDetails && (
+          // <div className="view-details">
+
+          <Link to={`/hero/${hero.slug}`} className="details-link">
+            <span className="material-symbols-outlined">info</span>
+            <p>View Details</p>
+          </Link>
+          // </div>
+        )}
 
         {detailed && (
           <>
             <p>Occupation: {hero.work.occupation}</p>
             <p>Race: {hero.appearance.race}</p>
-            <p>Connections: {hero.connections.relatives}</p>
+            <p>Associates: {hero.connections.groupAffiliation}</p>
+
             <div className="powerstats">
               <p>
                 <strong>Powerstats:</strong>
@@ -62,7 +71,7 @@ const navigate = useNavigate();
         )}
         {showRemoveButton && onRemove && (
           <button className="remove-btn" onClick={onRemove}>
-            Remove from Favorites
+            <span className="material-symbols-outlined deleteBtn">delete</span>
           </button>
         )}
       </article>

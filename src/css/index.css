@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap");
 @import url(https://fonts.bunny.net/css?family=combo:400);
 @import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
@@ -22,7 +21,6 @@ body {
   background-position: center;
   box-sizing: border-box;
   overflow-x: hidden;
-  /* min-height: 100vh; */
   color: #f0cca4;
 }
 main {
@@ -30,6 +28,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* margin-bottom: 3rem; */
 }
 
 h1 {

@@ -13,6 +13,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
   const [occupation, setOccupation] = useState("");
   const [race, setRace] = useState("");
   const [alignment, setAlignment] = useState("");
+  const [associates, setAssociates] = useState("");
   const [intelligence, setIntelligence] = useState(0);
   const [strength, setStrength] = useState(0);
   const [speed, setSpeed] = useState(0);
@@ -32,7 +33,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         durability: 0,
         power: 0,
         combat: 0,
-      }, // Standardvärden
+      },
       appearance: {
         gender: "",
         race: race,
@@ -40,7 +41,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         weight: [""],
         eyeColor: "",
         hairColor: "",
-      }, // Standardvärden
+      },
       biography: {
         fullName: fullName,
         alterEgos: "",
@@ -51,7 +52,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         alignment: alignment,
       },
       work: { occupation: occupation, base: "" },
-      connections: { groupAffiliation: "", relatives: "" },
+      connections: { groupAffiliation: associates, relatives: "" },
       images: {
         xs: "/logo.png",
         sm: "/logo.png",
@@ -119,6 +120,16 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
           placeholder="Enter hero race"
         />
       </div>
+      <div>
+        <label>Associates:</label>
+        <input
+          type="text"
+          value={associates}
+          onChange={(e) => setAssociates(e.target.value)}
+          placeholder="Enter other associates if any"
+        />
+      </div>
+      <p>Powerstats:</p>
       <div>
         <label>Intelligence (0-100):</label>
         <input

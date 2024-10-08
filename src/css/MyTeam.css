@@ -28,28 +28,45 @@ h1 {
 .my-team-container {
   max-width: 1000px;
   margin: 0 auto;
+  padding-bottom: 3rem;
 }
 
 .my-team-add-btn {
-  margin: 2rem 0 5rem;
+  margin: 1rem 0;
 }
 
 .remove-btn {
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.356);
+  /* border: 1px solid rgba(0, 0, 0, 0.356); */
   margin-top: 2rem;
-  font-size: 0.9rem;
-  width: fit-content;
-  align-self: center;
+  align-self: flex-end;
+
+  .deleteBtn {
+    font-size: 2rem;
+  }
+}
+
+.heroes-headline {
+  font-family: "Combo", display;
+  font-weight: 600;
+  font-size: 2.2rem;
 }
 
 .remove-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
-@media (max-width: 757px) {
+@media (max-width: 1000px) {
   .created-heroes,
   .favorite-heroes {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    max-width: 700px;
+  }
+
+  @media (max-width: 757px) {
+    .created-heroes,
+    .favorite-heroes {
+      grid-template-columns: 1fr;
+    }
   }
 }
