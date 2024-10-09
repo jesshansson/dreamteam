@@ -49,6 +49,12 @@
     gap: 0.2rem;
   }
 
+  .details-link:hover {
+    text-decoration: none;
+    transform: none; /* Ingen skalning eller animation */
+    transition: none; /* Ingen transition på hover */
+  }
+
   .alignment.good {
     color: green;
     font-weight: bold;

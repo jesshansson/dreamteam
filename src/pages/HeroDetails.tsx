@@ -3,6 +3,7 @@ import { HeroCard } from "../components/HeroCard";
 import { useHeroes } from "../context/HeroContext";
 import { useState, useEffect } from "react";
 import { IHero } from "../interface";
+import { BackButton } from "../assets/BackButton";
 
 export function HeroDetails() {
   const { slug } = useParams(); // Hämta slug från URL:en
@@ -53,6 +54,7 @@ export function HeroDetails() {
           Add to Favorites
         </button>
       )}
+      <BackButton />
     </main>
   ) : (
     <p>No hero found.</p>

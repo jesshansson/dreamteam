@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap");
 @import url(https://fonts.bunny.net/css?family=combo:400);
 @import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
 
 html,
 body,
@@ -28,7 +31,6 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* margin-bottom: 3rem; */
 }
 
 h1 {
@@ -66,4 +68,14 @@ button:hover {
 
 .new-hero-btn {
   margin: 2rem 0;
+}
+
+a {
+  transition: none;
+}
+
+a:hover {
+  text-decoration: none;
+  transform: none;
+  transition: none;
 }

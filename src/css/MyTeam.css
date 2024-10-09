@@ -28,6 +28,7 @@ ul {
 h1 {
   text-align: center;
   font-family: "Oooh Baby", cursive;
+  margin-top: 2rem;
 }
 
 .my-team-container {
@@ -61,7 +62,9 @@ h1 {
 .remove-btn:hover {
   transform: scale(1.1);
 }
-
+.edit-btn:hover {
+  transform: scale(1.1);
+}
 .edit-delete {
   display: flex;
   justify-content: space-between;

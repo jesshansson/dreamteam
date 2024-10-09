@@ -58,7 +58,7 @@ export function MyTeam() {
                     hero={hero}
                     showSeeDetails={true}
                     detailed={false}
-                    showRemoveButton={true} // Visa ta bort-knappen
+                    showRemoveButton={true}
                     onRemove={() => removeHeroFromTeam(hero.id)}
                   />
                 </li>
@@ -72,7 +72,3 @@ export function MyTeam() {
     </>
   );
 }
-
-// Innehålla
-// HeroCard.tsx
-// DeleteHero.tsx?

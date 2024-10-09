@@ -40,13 +40,10 @@ export function HeroCard({
         </p>
 
         {showSeeDetails && (
-          // <div className="view-details">
-
           <Link to={`/hero/${hero.slug}`} className="details-link">
             <span className="material-symbols-outlined">info</span>
             <p>View Details</p>
           </Link>
-          // </div>
         )}
 
         {detailed && (

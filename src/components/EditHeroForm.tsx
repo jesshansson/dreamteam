@@ -8,7 +8,7 @@ interface EditHeroFormProps {
 }
 
 export function EditHeroForm({ hero, onSubmit }: EditHeroFormProps) {
-  // Fyll formuläret med befintlig hjälteinformation, ersätt null med ""
+  // Formuläret fylls med befintlig hjälteinformation, null ersätts med ""
   const [name, setName] = useState(hero.name || "");
   const [aliases, setAliases] = useState(hero.biography.aliases.join(", ") || "");
   const [fullName, setFullName] = useState(hero.biography.fullName || "");
@@ -45,7 +45,7 @@ export function EditHeroForm({ hero, onSubmit }: EditHeroFormProps) {
       },
     };
 
-    onSubmit(updatedHero); // Skicka tillbaka det uppdaterade hjälteobjektet
+    onSubmit(updatedHero); // Skicka tillbaka det uppdaterade hjälteobjektet till context
   };
 
   return (
