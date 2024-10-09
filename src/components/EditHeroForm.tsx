@@ -1,72 +1,56 @@
-import { FormEvent, useState } from "react";
+import { useState, FormEvent } from "react";
 import { IHero } from "../interface";
-// import defaultImg from "../assets/logo.png";
+// Se till att din IHero-interface importeras korrekt
 
-interface HeroFormProps {
+interface EditHeroFormProps {
+  hero: IHero; // Här kräver vi att hero skickas in som prop
   onSubmit: (data: IHero) => void;
 }
 
-export function HeroForm({ onSubmit }: HeroFormProps) {
-  const [name, setName] = useState("");
-  const [aliases, setAliases] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [occupation, setOccupation] = useState("");
-  const [race, setRace] = useState("");
-  const [alignment, setAlignment] = useState("");
-  const [associates, setAssociates] = useState("");
-  const [intelligence, setIntelligence] = useState(0);
-  const [strength, setStrength] = useState(0);
-  const [speed, setSpeed] = useState(0);
+export function EditHeroForm({ hero, onSubmit }: EditHeroFormProps) {
+  // Fyll formuläret med befintlig hjälteinformation, ersätt null med ""
+  const [name, setName] = useState(hero.name || "");
+  const [aliases, setAliases] = useState(hero.biography.aliases.join(", ") || "");
+  const [fullName, setFullName] = useState(hero.biography.fullName || "");
+  const [occupation, setOccupation] = useState(hero.work.occupation || "");
+  const [race, setRace] = useState(hero.appearance.race || "");
+  const [alignment, setAlignment] = useState(hero.biography.alignment || "");
+  const [associates, setAssociates] = useState(hero.connections.groupAffiliation || "");
+  const [intelligence, setIntelligence] = useState(hero.powerstats.intelligence || 0);
+  const [strength, setStrength] = useState(hero.powerstats.strength || 0);
+  const [speed, setSpeed] = useState(hero.powerstats.speed || 0);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    // Skapa ett nytt hjälteobjekt med standardvärden för fälten användaren inte fyller i
-    const newHero: IHero = {
-      id: Math.random(), // Generera ett unikt id
-      name: name,
-      slug: name.toLowerCase().replace(/\s+/g, "-"), // Generera slug från namnet
-      powerstats: {
-        intelligence: intelligence,
-        strength: strength,
-        speed: speed,
-        durability: 0,
-        power: 0,
-        combat: 0,
-      },
-      appearance: {
-        gender: "",
-        race: race,
-        height: [""],
-        weight: [""],
-        eyeColor: "",
-        hairColor: "",
-      },
+    const updatedHero: IHero = {
+      ...hero, // Behåll befintligt id och bild
+      name,
       biography: {
-        fullName: fullName,
-        alterEgos: "",
-        aliases: aliases.split(",").map((alias) => alias.trim()), // split(",") delar upp aliases-strängen i en array baserat på kommatecken som separator. Sedan: map() går igenom varje alias i arrayen och tillämpar trim() för att ta bort överflödiga mellanslag i början och slutet av varje alias.
-        placeOfBirth: "",
-        firstAppearance: "",
-        publisher: "",
-        alignment: alignment,
+        ...hero.biography,
+        fullName,
+        aliases: aliases.split(",").map((alias) => alias.trim()),
+        alignment,
       },
-      work: { occupation: occupation, base: "" },
-      connections: { groupAffiliation: associates, relatives: "" },
-      images: {
-        xs: "/logo.png",
-        sm: "/logo.png",
-        md: "/logo.png",
-        lg: "/logo.png",
+      work: { ...hero.work, occupation },
+      appearance: { ...hero.appearance, race },
+      connections: { ...hero.connections, groupAffiliation: associates },
+      powerstats: {
+        intelligence,
+        strength,
+        speed,
+        durability: hero.powerstats.durability,
+        power: hero.powerstats.power,
+        combat: hero.powerstats.combat,
       },
-      isCustom: true, // Flagg för att indikera att hjälten är skapad av användaren
     };
 
-    onSubmit(newHero); // Skicka hela hjälteobjektet till parent-komponenten
+    onSubmit(updatedHero); // Skicka tillbaka det uppdaterade hjälteobjektet
   };
+
   return (
-    <form className="add-hero-form" onSubmit={handleSubmit}>
-      <fieldset className="add-hero-input">
+    <form className="edit-hero-form" onSubmit={handleSubmit}>
+      <fieldset className="edit-hero-input">
         <label>Hero Alias:</label>
         <input
           type="text"
@@ -76,7 +60,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         />
       </fieldset>
 
-      <fieldset className="add-hero-input">
+      <fieldset className="edit-hero-input">
         <label>Hero Full Name:</label>
         <input
           type="text"
@@ -86,7 +70,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         />
       </fieldset>
 
-      <fieldset className="add-hero-input">
+      <fieldset className="edit-hero-input">
         <label>Aliases (comma separated):</label>
         <input
           type="text"
@@ -96,7 +80,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         />
       </fieldset>
 
-      <fieldset className="add-hero-input">
+      <fieldset className="edit-hero-input">
         <label>Alignment:</label>
         <input
           type="text"
@@ -106,7 +90,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         />
       </fieldset>
 
-      <fieldset className="add-hero-input">
+      <fieldset className="edit-hero-input">
         <label>Occupation:</label>
         <input
           type="text"
@@ -116,7 +100,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         />
       </fieldset>
 
-      <fieldset className="add-hero-input">
+      <fieldset className="edit-hero-input">
         <label>Race:</label>
         <input
           type="text"
@@ -126,7 +110,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         />
       </fieldset>
 
-      <fieldset className="add-hero-input">
+      <fieldset className="edit-hero-input">
         <label>Associates:</label>
         <input
           type="text"
@@ -139,7 +123,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
       <section className="powerstats">
         <h3 className="powerstats-headline">Powerstats:</h3>
 
-        <fieldset className="add-hero-input">
+        <fieldset className="edit-hero-input">
           <label>Intelligence (0-100):</label>
           <input
             type="number"
@@ -149,7 +133,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
           />
         </fieldset>
 
-        <fieldset className="add-hero-input">
+        <fieldset className="edit-hero-input">
           <label>Strength (0-100):</label>
           <input
             type="number"
@@ -159,7 +143,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
           />
         </fieldset>
 
-        <fieldset className="add-hero-input">
+        <fieldset className="edit-hero-input">
           <label>Speed (0-100):</label>
           <input
             type="number"
@@ -169,7 +153,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
           />
         </fieldset>
       </section>
-      <button type="submit">Add Hero</button>
+      <button type="submit">Update Hero</button>
     </form>
   );
 }

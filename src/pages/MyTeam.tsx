@@ -11,7 +11,12 @@ export function MyTeam() {
   }
 
   if (customHeroes.length === 0 && teamHeroes.length === 0) {
-    return <p>No heroes have been added to your team yet.</p>;
+    <>
+      <p className="no-heroes-msg">No heroes have been added to your team yet.</p>
+      <Link to={"/add-hero"}>
+        <button className="my-team-add-btn top">Create a new superhero</button>
+      </Link>
+    </>;
   }
 
   return (
@@ -20,7 +25,7 @@ export function MyTeam() {
         <h1>My Team</h1>
         <h2 className="heroes-headline">Created Heroes</h2>
         {customHeroes.length === 0 ? (
-          <p>No created heroes have been added to your team yet.</p>
+          <p className="no-heroes-msg">No created heroes have been added to your team yet.</p>
         ) : (
           <ul className="created-heroes">
             {customHeroes.map((hero) => (
@@ -42,7 +47,7 @@ export function MyTeam() {
 
         <h2 className="heroes-headline">Added favorites</h2>
         {teamHeroes.filter((hero) => !hero.isCustom).length === 0 ? (
-          <p>No favorite heroes have been added to your team yet.</p>
+          <p className="no-heroes-msg">No favorite heroes have been added to your team yet.</p>
         ) : (
           <ul className="favorite-heroes">
             {teamHeroes
@@ -60,8 +65,8 @@ export function MyTeam() {
               ))}
           </ul>
         )}
-        <Link to={"/add-hero"}>
-          <button className="my-team-add-btn">Add a superhero</button>
+        <Link to={"/"}>
+          <button className="my-team-add-btn">Look for new a superhero</button>
         </Link>
       </main>
     </>

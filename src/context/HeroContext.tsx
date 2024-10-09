@@ -4,11 +4,12 @@ import { IHero } from "../interface";
 // Definiera vilken typ av data som Context ska hantera, inklusive funktionen för att lägga till en hjälte
 interface HeroContextData {
   heroes: IHero[]; // Hjältar från API
-  customHeroes: IHero[]; // Endast skapade hjältar
+  customHeroes: IHero[]; // Skapade hjältar
   teamHeroes: IHero[]; // Alla hjältar i "My Team" (både skapade och favoritmarkerade från API)
   loading: boolean;
   addHeroToTeam: (newHero: IHero) => void; // Funktion som komponenter kan anropa för att lägga till en hjälte i teamet
   removeHeroFromTeam: (heroId: number) => void; // Funktion för att ta bort en hjälte från teamet
+  updateHero: (updatedHero: IHero) => void;
 }
 
 // Skapa Context
@@ -88,9 +89,32 @@ export const HeroProvider = ({ children }: { children: ReactNode }) => {
     saveCustomHeroesToLocalStorage(updatedCustomHeroes); // Uppdatera localStorage för customHeroes
   };
 
+  //Funktion för att uppdatera hjälte
+  const updateHero = (updatedHero: IHero) => {
+    // Uppdatera endast teamHeroes
+    setTeamHeroes((prevTeamHeroes) =>
+      prevTeamHeroes.map((hero) => (hero.id === updatedHero.id ? updatedHero : hero))
+    );
+
+    // Om hjälten är användarskapad, uppdatera även customHeroes
+    if (updatedHero.isCustom) {
+      setCustomHeroes((prevCustomHeroes) =>
+        prevCustomHeroes.map((hero) => (hero.id === updatedHero.id ? updatedHero : hero))
+      );
+    }
+  };
+
   return (
     <HeroContext.Provider
-      value={{ heroes, loading, teamHeroes, customHeroes, addHeroToTeam, removeHeroFromTeam }}
+      value={{
+        heroes,
+        loading,
+        teamHeroes,
+        customHeroes,
+        addHeroToTeam,
+        removeHeroFromTeam,
+        updateHero,
+      }}
     >
       {children}
     </HeroContext.Provider>

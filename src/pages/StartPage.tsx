@@ -23,7 +23,7 @@ export function StartPage() {
   return (
     <main>
       {currentHero ? (
-        <HeroCard hero={currentHero} showAddToFavorites={true} />
+        <HeroCard hero={currentHero} showAddToFavorites={true} showEditButton={false} />
       ) : (
         <p>No hero found.</p>
       )}

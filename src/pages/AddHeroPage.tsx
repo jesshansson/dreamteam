@@ -16,7 +16,7 @@ export function AddHeroPage() {
   return (
     <main>
       <h1>Add a New Hero</h1>
-      <article className="add-hero-form">
+      <article>
         <HeroForm onSubmit={handleAddHero} />
       </article>
     </main>

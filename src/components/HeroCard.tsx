@@ -8,6 +8,7 @@ interface HeroCardProps {
   showSeeDetails?: boolean;
   showAddToFavorites?: boolean;
   showRemoveButton?: boolean;
+  showEditButton?: boolean;
   onRemove?: () => void;
 }
 
@@ -17,6 +18,7 @@ export function HeroCard({
   showSeeDetails = true,
   showAddToFavorites = false,
   showRemoveButton = false,
+  showEditButton = true,
   onRemove,
 }: HeroCardProps) {
   const { addHeroToTeam } = useHeroes(); // Hämta funktionen för att lägga till hjältar i teamet
@@ -69,11 +71,19 @@ export function HeroCard({
             Add to Favorites
           </button>
         )}
-        {showRemoveButton && onRemove && (
-          <button className="remove-btn" onClick={onRemove}>
-            <span className="material-symbols-outlined deleteBtn">delete</span>
-          </button>
-        )}
+
+        <div className="edit-delete">
+          {showEditButton && (
+            <button className="edit-btn" onClick={() => navigate(`/edit-hero/${hero.slug}`)}>
+              <span className="material-symbols-outlined editBtn">edit</span>
+            </button>
+          )}
+          {showRemoveButton && onRemove && (
+            <button className="remove-btn" onClick={onRemove}>
+              <span className="material-symbols-outlined deleteBtn">delete</span>
+            </button>
+          )}
+        </div>
       </article>
     </main>
   ) : (
