@@ -26,7 +26,7 @@ export function Header() {
         <Link to={"/my-team"}>
           <h2>My Team</h2>
         </Link>
-        <Link to={"#"}>
+        <Link to={"/search"}>
           <h2>Search</h2>
         </Link>
       </div>

@@ -20,5 +20,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "StartPageMarvel.tsx"]
+  "include": ["src"]
 }

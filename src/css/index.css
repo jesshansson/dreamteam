@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap");
 @import url(https://fonts.bunny.net/css?family=combo:400);
 @import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+
 /* @tailwind base; */
 @tailwind components;
 @tailwind utilities;
@@ -79,3 +81,30 @@ a:hover {
   transform: none;
   transition: none;
 }
+
+/*Scrollbar*/
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #a7a7c7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #3b537a;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3f5e;
+}
+
+::-webkit-scrollbar-button {
+  background: #3b537a;
+}
+
+/*1e293b*/

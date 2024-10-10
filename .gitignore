@@ -25,8 +25,4 @@ dist-ssr
 StartPageMarvel.tsx
 test.txt
 styles.txt
-DeleteHero.tsx
-SearchDisplay.tsx
-SearchForm.tsx
-SearchPage.tsx
-notes.md
+note.md

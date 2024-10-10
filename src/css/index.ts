@@ -6,3 +6,4 @@ export * from "./HeroCard.css";
 export * from "./AddHeroPage.css";
 export * from "./StartPage.css";
 export * from "./HeroDetails.css";
+export * from "./SearchPage.css";

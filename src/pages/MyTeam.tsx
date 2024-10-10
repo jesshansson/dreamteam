@@ -4,7 +4,6 @@ import { HeroCard } from "../components";
 
 export function MyTeam() {
   const { customHeroes, teamHeroes, removeHeroFromTeam, loading } = useHeroes(); // Hämta både skapade hjältar och team/favorithjältar
-  // console.log("Team heroes:", teamHeroes);
 
   if (loading) {
     return <p>Loading heroes...</p>;
@@ -65,7 +64,7 @@ export function MyTeam() {
               ))}
           </ul>
         )}
-        <Link to={"/"}>
+        <Link to={"/search"}>
           <button className="my-team-add-btn">Look for new a superhero</button>
         </Link>
       </main>

@@ -13,7 +13,7 @@ export function HamburgerMenu() {
       <button onClick={toggleMenu} className="text-white focus:outline-none z-20">
         {/* Hamburger icon */}
         <svg
-          className="w-8 h-8"
+          className="w-6 h-6"
           fill="none"
           stroke="black"
           viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ export function HamburgerMenu() {
         <Link to="/my-team" className="block text-white px-3 py-2 hover:bg-custom-blue">
           My Team
         </Link>
-        <Link to="#" className="block text-white px-3 py-2 hover:bg-custom-blue">
+        <Link to="/search" className="block text-white px-3 py-2 hover:bg-custom-blue">
           Search
         </Link>
       </div>

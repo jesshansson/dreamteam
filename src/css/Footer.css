@@ -2,22 +2,25 @@ footer {
   bottom: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 3rem;
   color: #f0cca4;
-  font-size: 1.2rem;
+  font-size: 2rem;
   border-top: 1px solid #1e0335;
-  background-color: #1b3b736b;
-  font-family: "Playpen Sans", cursive;
+  background-color: #1b3b73bb;
+  font-family: "Caveat", cursive;
+  width: 100%;
 
   p {
-    margin: 0.5rem 1rem;
+    margin: 1rem;
+    text-align: center;
   }
 
-  a {
-    text-decoration: none;
-    color: #f0cca4;
-    margin-right: 1rem;
-    font-family: "Playpen Sans", cursive;
+  @media (max-width: 640px) {
+    margin-top: 2rem;
+
+    p {
+      font-size: 1.8rem;
+    }
   }
 }

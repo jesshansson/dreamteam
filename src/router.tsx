@@ -2,6 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import { App } from "./components";
 import { AddHeroPage, EditHeroPage, MyTeam, NotFound, StartPage } from "./pages";
 import { HeroDetails } from "./pages/HeroDetails";
+import { SearchPage } from "./pages/SearchPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -11,11 +12,12 @@ export const router = createBrowserRouter(
       <Route element={<MyTeam />} path="my-team" />
       <Route element={<AddHeroPage />} path="add-hero" />
       <Route element={<EditHeroPage />} path="edit-hero/:slug" />
+      <Route element={<SearchPage />} path="search" />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
 
 //
-// <Route element={<SearchPage />} path="search" />
+//
 //
