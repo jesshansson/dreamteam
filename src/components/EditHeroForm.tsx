@@ -1,9 +1,8 @@
 import { useState, FormEvent } from "react";
 import { IHero } from "../interface";
-// Se till att din IHero-interface importeras korrekt
 
 interface EditHeroFormProps {
-  hero: IHero; // Här kräver vi att hero skickas in som prop
+  hero: IHero; 
   onSubmit: (data: IHero) => void;
 }
 

@@ -12,12 +12,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   justify-items: center;
   column-gap: 2rem;
   row-gap: 1rem;
-
-  /* width: 100%; */
 }
 
 ul {
@@ -44,7 +42,6 @@ h1 {
 .remove-btn,
 .edit-btn {
   box-shadow: none;
-  /* border: 1px solid rgba(0, 0, 0, 0.356); */
   margin-top: 2rem;
 
   .deleteBtn,

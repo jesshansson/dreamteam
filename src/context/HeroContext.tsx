@@ -121,7 +121,7 @@ export const HeroProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// Custom hook för att använda Context i komponenterna. När den används i en komponent kan vi direkt få tillgång till datan från HeroContext. Om context är undefined (om komponenten inte är omgiven av en HeroProvider), kastar vi ett fel
+// Custom hook för att använda Context i komponenterna. När den används i en komponent kan vi direkt få tillgång till datan från HeroContext. Om context är undefined (om komponenten inte är omgiven av en HeroProvider), kastas ett fel
 export const useHeroes = () => {
   const context = useContext(HeroContext);
   if (!context) {

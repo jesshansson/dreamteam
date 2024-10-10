@@ -12,13 +12,13 @@ export function EditHeroPage() {
 
   const handleSubmit = (updatedHero: IHero) => {
     updateHero(updatedHero); // Använd funktionen för att uppdatera hjälten
-    navigate("/my-team"); 
+    navigate("/my-team");
   };
 
   return hero ? (
     <main>
       <h1>Edit {hero.name}</h1>
-      <EditHeroForm hero={hero} onSubmit={handleSubmit} />{" "}
+      <EditHeroForm hero={hero} onSubmit={handleSubmit} />
     </main>
   ) : (
     <p>No hero found.</p>

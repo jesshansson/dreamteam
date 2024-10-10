@@ -1,6 +1,5 @@
 import { FormEvent, useState } from "react";
 import { IHero } from "../interface";
-// import defaultImg from "../assets/logo.png";
 
 interface HeroFormProps {
   onSubmit: (data: IHero) => void;
