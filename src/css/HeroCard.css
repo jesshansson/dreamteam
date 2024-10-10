@@ -51,8 +51,8 @@
 
   .details-link:hover {
     text-decoration: none;
-    transform: none; /* Ingen skalning eller animation */
-    transition: none; /* Ingen transition på hover */
+    transform: none; 
+    transition: none; 
   }
 
   .alignment.good {

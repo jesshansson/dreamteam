@@ -51,6 +51,24 @@
   button {
     margin-top: 1rem;
   }
+
+  .human-alien-btn {
+    margin-bottom: 1.5rem;
+    .human-alien-headline {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+    label {
+      font-weight: 400;
+      margin: 0 1rem;
+      cursor: pointer;
+    }
+    input {
+      margin-right: 0.5rem;
+    }
+  }
 }
 
 @media (max-width: 1100px) {
@@ -71,5 +89,25 @@
 @media (max-width: 757px) {
   .search-results {
     grid-template-columns: 1fr;
+  }
+
+  .search-form {
+    padding: 2rem 3.5rem;
+    .human-alien-btn {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+
+      .human-alien-headline {
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+      }
+      label {
+        font-weight: 400;
+        cursor: pointer;
+        text-align: center;
+      }
+    }
   }
 }

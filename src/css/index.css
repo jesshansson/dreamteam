@@ -11,6 +11,17 @@ html,
 body,
 #root {
   height: 100%;
+  margin: 0;
+}
+
+#page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Se till att sidan täcker hela höjden */
+}
+
+#content-wrap {
+  flex: 1; /* Gör att innehållet tar upp all tillgänglig plats */
 }
 
 body {
@@ -83,22 +94,18 @@ a:hover {
 }
 
 /*Scrollbar*/
-/* width */
 ::-webkit-scrollbar {
   width: 15px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #a7a7c7;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #3b537a;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #2d3f5e;
 }
@@ -106,5 +113,3 @@ a:hover {
 ::-webkit-scrollbar-button {
   background: #3b537a;
 }
-
-/*1e293b*/

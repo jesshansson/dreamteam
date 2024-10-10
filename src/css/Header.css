@@ -46,21 +46,15 @@ a {
   font-family: "Combo", display;
 }
 
-/* a:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-} */
-
 img {
   width: 8rem;
   height: auto;
   margin: 0 1rem;
 }
 
-/* Anpassa header-länkar för större skärmar */
 @media (min-width: 640px) {
   .header-links {
-    gap: 2rem; /* Justera gap för större skärmar */
+    gap: 2rem;
   }
 
   h1 {
@@ -71,7 +65,7 @@ img {
 
 @media (max-width: 640px) {
   .header {
-    justify-content: center; /* Centrera logotyp och titel */
+    justify-content: center;
   }
 
   a {
@@ -86,11 +80,16 @@ img {
 
   img {
     width: 30%;
+    margin: 0;
   }
 
   h1 {
     text-align: center;
     font-size: 2.5rem;
     margin: 0;
+  }
+
+  .text-center {
+    margin-top: 0.5rem;
   }
 }

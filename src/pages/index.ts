@@ -4,3 +4,4 @@ export * from "./HeroDetails";
 export * from "./MyTeam";
 export * from "./AddHeroPage";
 export * from "./EditHeroPage";
+export * from "./SearchPage";

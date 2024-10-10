@@ -8,7 +8,7 @@ export function SearchPage() {
   const { heroes, loading } = useHeroes();
   const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
 
-  const handleSearch = (alignment: string, powerstat: string, name: string) => {
+  const handleSearch = (alignment: string, powerstat: string, name: string, race: string) => {
     let result = heroes;
 
     // Om ett namn har angetts, filtrera på namn
@@ -28,6 +28,16 @@ export function SearchPage() {
         if (powerstat === "intelligence") return hero.powerstats.intelligence > 80;
         if (powerstat === "speed") return hero.powerstats.speed > 80;
         return true; // Om ingen powerstat är vald, returnera alla
+      });
+    }
+
+    // Filtrera på race
+    if (race) {
+      result = result.filter((hero) => {
+        if (race === "human") return hero.appearance.race?.toLowerCase() === "human";
+        if (race === "alien")
+          return hero.appearance.race?.toLowerCase() !== "human" || !hero.appearance.race; // Alla som inte är "human" eller saknar race är "alien"
+        return true;
       });
     }
 

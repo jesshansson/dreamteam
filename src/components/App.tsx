@@ -6,11 +6,15 @@ import { Footer } from "./Footer";
 export function App() {
   return (
     <>
-      <HeroProvider>
-        <Header />
-        <Outlet />
-      </HeroProvider>
-      <Footer />
+      <section id="page-container">
+        <section id="content-wrap">
+          <HeroProvider>
+            <Header />
+            <Outlet />
+          </HeroProvider>
+        </section>
+        <Footer />
+      </section>
     </>
   );
 }
