@@ -23,10 +23,10 @@ export function EditHeroForm({ hero, onSubmit }: EditHeroFormProps) {
     e.preventDefault();
 
     const updatedHero: IHero = {
-      ...hero, // Behåll befintligt id och bild
+      ...hero, // Sprid ut alla befintliga egenskaper från 'hero'. Genom att använda ...hero kan vi kopiera alla befintliga värden och bara ändra det vi vill uppdatera.
       name,
       biography: {
-        ...hero.biography,
+        ...hero.biography, // Behåll alla befintliga egenskaper i 'biography'
         fullName,
         aliases: aliases.split(",").map((alias) => alias.trim()),
         alignment,

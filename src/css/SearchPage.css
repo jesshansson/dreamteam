@@ -72,6 +72,33 @@
   }
 }
 
+.pagination {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  button {
+    margin: 0.3rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .active {
+    color: rgb(255, 255, 255);
+    background-color: #407ee7bb;
+  }
+}
+
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .back-to-top-btn {
+    justify-self: center;
+    align-self: center;
+    margin-top: 1rem;
+  }
+}
 @media (max-width: 1100px) {
   .search-form {
     margin: 2rem 7rem;

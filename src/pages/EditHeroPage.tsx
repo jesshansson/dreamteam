@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useHeroes } from "../context/HeroContext";
-import { EditHeroForm } from "../components/EditHeroForm"; // Importera den nya EditHeroForm
+import { EditHeroForm } from "../components/EditHeroForm";
 import { IHero } from "../interface";
 
 export function EditHeroPage() {
@@ -11,7 +11,7 @@ export function EditHeroPage() {
   const hero = teamHeroes.find((h) => h.slug === slug);
 
   const handleSubmit = (updatedHero: IHero) => {
-    updateHero(updatedHero); // Använd funktionen för att uppdatera hjälten
+    updateHero(updatedHero);
     navigate("/my-team");
   };
 

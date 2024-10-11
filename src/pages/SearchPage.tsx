@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useHeroes } from "../context/HeroContext";
-import { SearchForm, HeroCard } from "../components";
+import { SearchForm, HeroCard, Pagination } from "../components";
 import { IHero } from "../interface";
 import { Link } from "react-router-dom";
 
 export function SearchPage() {
   const { heroes, loading } = useHeroes();
   const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [heroesPerPage] = useState(20); // Antal hjältar per sida
 
   const handleSearch = (alignment: string, powerstat: string, name: string, race: string) => {
     let result = heroes;
@@ -42,13 +44,22 @@ export function SearchPage() {
     }
 
     // Begränsa till 50 hjältar
-    result = result.slice(0, 50);
+    // result = result.slice(0, 50);
     setFilteredHeroes(result); // Uppdatera resultaten
   };
 
   if (loading) {
     return <p>Loading heroes...</p>;
   }
+
+  // Pagineringen
+  // Räkna ut var på sidan resultaten ska börja och sluta baserat på currentPage och heroesPerPage
+  const indexOfLastHero = currentPage * heroesPerPage;
+  const indexOfFirstHero = indexOfLastHero - heroesPerPage;
+  const currentHeroes = filteredHeroes.slice(indexOfFirstHero, indexOfLastHero);
+
+  // Räkna ut hur många sidor vi behöver baserat på antal resultat och antal hjältar per sida
+  const totalPages = Math.ceil(filteredHeroes.length / heroesPerPage);
 
   return (
     <>
@@ -57,8 +68,16 @@ export function SearchPage() {
         <SearchForm onSearch={handleSearch} />
       </section>
       <section>
+        {filteredHeroes.length > 0 ? (
+          <Pagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        ) : null}
+
         <ul className="search-results">
-          {filteredHeroes.map((hero) => (
+          {currentHeroes.map((hero) => (
             <li className="search-result-item" key={hero.id}>
               <Link to={`/hero/${hero.slug}`} className="details-link">
                 <HeroCard
@@ -72,6 +91,25 @@ export function SearchPage() {
             </li>
           ))}
         </ul>
+        <div className="pagination-buttons">
+          {filteredHeroes.length > 0 ? (
+            <>
+              <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
+              <button
+                className="back-to-top-btn"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Back to top
+              </button>
+            </>
+          ) : null}
+        </div>
       </section>
     </>
   );

@@ -41,7 +41,7 @@ export function MyTeam() {
           </ul>
         )}
         <Link to={"/add-hero"}>
-          <button className="my-team-add-btn top">Create a new superhero</button>
+          <button className="my-team-add-btn">Create a new superhero</button>
         </Link>
 
         <h2 className="heroes-headline">Added favorites</h2>
