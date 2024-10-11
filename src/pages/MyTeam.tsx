@@ -65,7 +65,7 @@ export function MyTeam() {
           </ul>
         )}
         <Link to={"/search"}>
-          <button className="my-team-add-btn">Look for new a superhero</button>
+          <button className="my-team-add-btn">Look for a new superhero</button>
         </Link>
       </main>
     </>
