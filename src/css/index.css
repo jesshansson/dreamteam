@@ -95,7 +95,7 @@ a:hover {
 
 /*Scrollbar*/
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 16px;
 }
 
 ::-webkit-scrollbar-track {

@@ -70,6 +70,7 @@ img {
 
   a {
     font-family: "Playpen Sans", cursive;
+    font-size: 1.1rem;
   }
   .logo-title {
     flex-direction: column;

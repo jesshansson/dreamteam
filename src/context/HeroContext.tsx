@@ -89,18 +89,25 @@ export const HeroProvider = ({ children }: { children: ReactNode }) => {
     saveCustomHeroesToLocalStorage(updatedCustomHeroes); // Uppdatera localStorage för customHeroes
   };
 
-  //Funktion för att uppdatera hjälte
   const updateHero = (updatedHero: IHero) => {
-    // Uppdatera endast teamHeroes
-    setTeamHeroes((prevTeamHeroes) =>
-      prevTeamHeroes.map((hero) => (hero.id === updatedHero.id ? updatedHero : hero))
+    // Uppdatera teamHeroes
+    const updatedTeamHeroes = teamHeroes.map((hero) =>
+      hero.id === updatedHero.id ? updatedHero : hero
     );
+
+    setTeamHeroes(updatedTeamHeroes); // Uppdatera teamHeroes state
+
+    // Spara uppdaterade hjältar i localStorage
+    saveTeamHeroesToLocalStorage(updatedTeamHeroes);
 
     // Om hjälten är användarskapad, uppdatera även customHeroes
     if (updatedHero.isCustom) {
-      setCustomHeroes((prevCustomHeroes) =>
-        prevCustomHeroes.map((hero) => (hero.id === updatedHero.id ? updatedHero : hero))
+      const updatedCustomHeroes = customHeroes.map((hero) =>
+        hero.id === updatedHero.id ? updatedHero : hero
       );
+
+      setCustomHeroes(updatedCustomHeroes); // Uppdatera customHeroes state
+      saveCustomHeroesToLocalStorage(updatedCustomHeroes); // Spara skapade hjältar i localStorage
     }
   };
 

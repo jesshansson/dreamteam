@@ -48,17 +48,25 @@
     gap: 0.2rem;
   }
 
-  .details-link:hover {
+  /* .details-link:hover {
     text-decoration: none;
     transform: none;
     transition: none;
-  }
+  } */
+
+   /* .details-link{
+    p:hover {
+    text-decoration: none;
+     transform: scale(1.1);
+    transition: none;
+  } }
+ */
 
   .alignment.good {
     color: green;
     font-weight: bold;
   }
-
+  
   .alignment.bad {
     color: red;
     font-style: italic;
