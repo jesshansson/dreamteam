@@ -24,17 +24,27 @@
 
 .modal {
   background-color: #dedfe9;
+  margin: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   button {
     background-color: #1b3b73e1;
     box-shadow: none;
+    margin-top: 1rem;
+    width: fit-content;
   }
 
   .modal-text {
     color: black;
-    font-family: "Caveat", cursive;
+    font-family: "Oooh Baby", cursive;
     font-size: 2rem;
     margin: 1rem;
+
+    @media (max-width: 757px) {
+      font-size: 1.8rem;
+    }
   }
 }
 
@@ -42,7 +52,7 @@
   .welcome-msg {
     padding: 1rem 2rem;
     margin: 1rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
 
     h1 {
       font-size: 1.8rem;

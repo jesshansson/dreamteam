@@ -33,7 +33,7 @@
 
   .powerstats {
     padding: 0 1rem;
-    margin-top: 1rem;
+    margin: 1.5rem 0;
     box-shadow: 0px 0px 10px -3px rgba(23, 0, 105, 0.664);
     border-radius: 10px;
   }
@@ -44,23 +44,9 @@
     text-decoration: none;
     color: black;
     font-weight: 600;
-    margin-top: 1rem;
+    margin: 1rem 0;
     gap: 0.2rem;
   }
-
-  /* .details-link:hover {
-    text-decoration: none;
-    transform: none;
-    transition: none;
-  } */
-
-  /* .details-link{
-    p:hover {
-    text-decoration: none;
-     transform: scale(1.1);
-    transition: none;
-  } }
- */
 
   .alignment.good {
     color: green;
@@ -74,6 +60,17 @@
 
   .add-btn {
     margin: 1.2rem 0;
+  }
+
+  .remove-btn,
+  .edit-btn {
+    box-shadow: none;
+    padding: 0.5rem;
+
+    .deleteBtn,
+    .editBtn {
+      font-size: 2rem;
+    }
   }
 
   @media (max-width: 757px) {

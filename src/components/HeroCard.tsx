@@ -84,7 +84,7 @@ export function HeroCard({
           ))}
 
         <div className="edit-delete">
-          {showEditButton && (
+          {showEditButton && isHeroInTeam(hero.id) && (
             <button className="edit-btn" onClick={() => navigate(`/edit-hero/${hero.slug}`)}>
               <span className="material-symbols-outlined editBtn">edit</span>
             </button>
@@ -107,6 +107,12 @@ export function HeroCard({
               onClick={() => setShowModal(false)}
             >
               Close
+            </button>
+            <button
+              className="bg-custom-blue hover:bg-custom-blue text-white font-400 py-2 px-4 rounded"
+              onClick={() => navigate("/my-team")}
+            >
+              My Team
             </button>
           </div>
         </div>

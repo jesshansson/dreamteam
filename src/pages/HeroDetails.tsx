@@ -3,7 +3,7 @@ import { HeroCard } from "../components/HeroCard";
 import { useHeroes } from "../context/HeroContext";
 import { useState, useEffect } from "react";
 import { IHero } from "../interface";
-import { BackButton } from "../assets/BackButton";
+import { BackButton } from "../components/BackButton";
 
 export function HeroDetails() {
   const { slug } = useParams(); // Hämta slug från URL:en

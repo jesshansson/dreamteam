@@ -41,17 +41,6 @@ h1 {
   margin: 1rem 0;
 }
 
-.remove-btn,
-.edit-btn {
-  box-shadow: none;
-  margin-top: 2rem;
-
-  .deleteBtn,
-  .editBtn {
-    font-size: 2rem;
-  }
-}
-
 .heroes-headline {
   font-family: "Combo", display;
   font-weight: 600;

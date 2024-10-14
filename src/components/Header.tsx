@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { HamburgerMenu } from "../assets/HamburgerMenu";
+import { HamburgerMenu } from "./HamburgerMenu";
 
 export function Header() {
   return (

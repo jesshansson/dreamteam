@@ -22,9 +22,9 @@ export function MyTeam() {
     <>
       <main className="my-team-container">
         <h1>My Team</h1>
-        <h2 className="heroes-headline">Created Heroes</h2>
+        <h2 className="heroes-headline">Created Members</h2>
         {customHeroes.length === 0 ? (
-          <p className="no-heroes-msg">No created heroes have been added to your team yet.</p>
+          <p className="no-heroes-msg">No created members have been added to your team yet.</p>
         ) : (
           <ul className="created-heroes">
             {customHeroes.map((hero) => (
@@ -41,12 +41,12 @@ export function MyTeam() {
           </ul>
         )}
         <Link to={"/add-hero"}>
-          <button className="my-team-add-btn">Create a new superhero</button>
+          <button className="my-team-add-btn">Create a new member</button>
         </Link>
 
-        <h2 className="heroes-headline">Added favorites</h2>
+        <h2 className="heroes-headline">Recruits</h2>
         {teamHeroes.filter((hero) => !hero.isCustom).length === 0 ? (
-          <p className="no-heroes-msg">No favorite heroes have been added to your team yet.</p>
+          <p className="no-heroes-msg">No recruits have been added to your team yet.</p>
         ) : (
           <ul className="favorite-heroes">
             {teamHeroes
@@ -65,7 +65,7 @@ export function MyTeam() {
           </ul>
         )}
         <Link to={"/search"}>
-          <button className="my-team-add-btn">Look for a new superhero</button>
+          <button className="my-team-add-btn">Look for a new recruit</button>
         </Link>
       </main>
     </>

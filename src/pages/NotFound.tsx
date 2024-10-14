@@ -1,4 +1,4 @@
-import { BackButton } from "../assets/BackButton";
+import { BackButton } from "../components/BackButton";
 
 export function NotFound() {
   return (
