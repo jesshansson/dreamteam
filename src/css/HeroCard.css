@@ -54,7 +54,7 @@
     transition: none;
   } */
 
-   /* .details-link{
+  /* .details-link{
     p:hover {
     text-decoration: none;
      transform: scale(1.1);
@@ -66,10 +66,14 @@
     color: green;
     font-weight: bold;
   }
-  
+
   .alignment.bad {
     color: red;
     font-style: italic;
+  }
+
+  .add-btn {
+    margin: 1.2rem 0;
   }
 
   @media (max-width: 757px) {

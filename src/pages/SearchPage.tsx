@@ -9,8 +9,10 @@ export function SearchPage() {
   const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [heroesPerPage] = useState(20); // Antal hjältar per sida
+  const [searchDone, setSearchDone] = useState(false);
 
   const handleSearch = (alignment: string, powerstat: string, name: string, race: string) => {
+    setSearchDone(true);
     let result = heroes;
 
     // Om ett namn har angetts, filtrera på namn
@@ -68,48 +70,53 @@ export function SearchPage() {
         <SearchForm onSearch={handleSearch} />
       </section>
       <section>
-        {filteredHeroes.length > 0 ? (
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-        ) : null}
-
-        <ul className="search-results">
-          {currentHeroes.map((hero) => (
-            <li className="search-result-item" key={hero.id}>
-              <Link to={`/hero/${hero.slug}`} className="details-link">
-                <HeroCard
-                  hero={hero}
-                  showSeeDetails={false}
-                  detailed={false}
-                  showRemoveButton={false}
-                  showEditButton={false}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="pagination-buttons">
-          {filteredHeroes.length > 0 ? (
-            <>
+        {searchDone && filteredHeroes.length === 0 ? (
+          <p className="search-message">No heroes found. Try another search!</p>
+        ) : (
+          <>
+            {filteredHeroes.length > 0 && (
               <Pagination
                 totalPages={totalPages}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
               />
-              <button
-                className="back-to-top-btn"
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                }}
-              >
-                Back to top
-              </button>
-            </>
-          ) : null}
-        </div>
+            )}
+
+            <ul className="search-results">
+              {currentHeroes.map((hero) => (
+                <li className="search-result-item" key={hero.id}>
+                  <Link to={`/hero/${hero.slug}`} className="details-link">
+                    <HeroCard
+                      hero={hero}
+                      showSeeDetails={false}
+                      detailed={false}
+                      showRemoveButton={false}
+                      showEditButton={false}
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {filteredHeroes.length > 0 && (
+              <div className="pagination-buttons">
+                <Pagination
+                  totalPages={totalPages}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                />
+                <button
+                  className="back-to-top-btn"
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                  }}
+                >
+                  Back to top
+                </button>
+              </div>
+            )}
+          </>
+        )}
       </section>
     </>
   );

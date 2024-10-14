@@ -9,7 +9,8 @@ interface HeroContextData {
   loading: boolean;
   addHeroToTeam: (newHero: IHero) => void; // Funktion som komponenter kan anropa för att lägga till en hjälte i teamet
   removeHeroFromTeam: (heroId: number) => void; // Funktion för att ta bort en hjälte från teamet
-  updateHero: (updatedHero: IHero) => void;
+  updateHero: (updatedHero: IHero) => void; // Funktion för att uppdatera en hjälte
+  isHeroInTeam: (heroId: number) => boolean; // Funktion för att kontrollera om en hjälte finns i teamet
 }
 
 // Skapa Context
@@ -61,6 +62,11 @@ export const HeroProvider = ({ children }: { children: ReactNode }) => {
     };
     fetchHeroes();
   }, []);
+
+  // Kontrollera om en hjälte redan finns i teamet
+  const isHeroInTeam = (heroId: number) => {
+    return teamHeroes.some((teamHero) => teamHero.id === heroId);
+  };
 
   // Funktion för att lägga till en hjälte till teamet (både skapade och från API)
   const addHeroToTeam = (newHero: IHero) => {
@@ -121,6 +127,7 @@ export const HeroProvider = ({ children }: { children: ReactNode }) => {
         addHeroToTeam,
         removeHeroFromTeam,
         updateHero,
+        isHeroInTeam,
       }}
     >
       {children}

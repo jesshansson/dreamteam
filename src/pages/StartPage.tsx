@@ -22,6 +22,14 @@ export function StartPage() {
 
   return (
     <main>
+      <div className="welcome-msg">
+        <h1>Welcome to Dream Team HQ!</h1>
+        <p>
+          Ready to unleash your inner hero (or villain)? It’s time to assemble your ultimate squad!
+          Create your own legendary characters or recruit from the world’s greatest heroes and
+          villains. Your dream team awaits — who will rise to the challenge?
+        </p>
+      </div>
       {currentHero ? (
         <HeroCard hero={currentHero} showAddToFavorites={true} showEditButton={false} />
       ) : (

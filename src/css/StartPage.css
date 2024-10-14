@@ -5,3 +5,47 @@
   box-shadow: none;
   border: 1px solid rgba(0, 0, 0, 0.356);
 }
+
+.welcome-msg {
+  padding: 1rem 5rem;
+  font-family: "Playpen Sans", cursive;
+  background-color: #1b3b73bb;
+  margin: 2rem;
+  border-radius: 10px;
+  max-width: 30rem;
+  text-align: center;
+  font-size: 1.1rem;
+
+  h1 {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+}
+
+.modal {
+  background-color: #dedfe9;
+
+  button {
+    background-color: #1b3b73e1;
+    box-shadow: none;
+  }
+
+  .modal-text {
+    color: black;
+    font-family: "Caveat", cursive;
+    font-size: 2rem;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 757px) {
+  .welcome-msg {
+    padding: 1rem 2rem;
+    margin: 1rem;
+    font-size: 0.9rem;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
+}

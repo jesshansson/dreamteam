@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { IHero } from "../interface";
 import { useHeroes } from "../context/HeroContext";
+import { useState } from "react";
 
 interface HeroCardProps {
   hero: IHero;
@@ -21,12 +22,20 @@ export function HeroCard({
   showEditButton = true,
   onRemove,
 }: HeroCardProps) {
-  const { addHeroToTeam } = useHeroes(); // Hämta funktionen för att lägga till hjältar i teamet
+  const { addHeroToTeam, removeHeroFromTeam, isHeroInTeam } = useHeroes(); // Hämta funktionen för att lägga till hjältar i teamet
   const navigate = useNavigate();
+
+  const [showModal, setShowModal] = useState(false);
+
   const handleAddToFavorites = () => {
     addHeroToTeam(hero); // Lägg till hjälten i favoriter/team
-    navigate("/my-team");
+    setShowModal(true);
   };
+
+  const handleRemoveFromFavorites = () => {
+    removeHeroFromTeam(hero.id); // Ta bort hjälten från teamet
+  };
+
   return hero ? (
     <main>
       <article className="hero-card">
@@ -63,11 +72,16 @@ export function HeroCard({
           </>
         )}
 
-        {showAddToFavorites && (
-          <button className="add-btn" onClick={handleAddToFavorites}>
-            Add to Favorites
-          </button>
-        )}
+        {showAddToFavorites &&
+          (isHeroInTeam(hero.id) ? (
+            <button className="add-btn" onClick={handleRemoveFromFavorites}>
+              Remove from My Team
+            </button>
+          ) : (
+            <button className="add-btn" onClick={handleAddToFavorites}>
+              Add to My Team
+            </button>
+          ))}
 
         <div className="edit-delete">
           {showEditButton && (
@@ -82,6 +96,21 @@ export function HeroCard({
           )}
         </div>
       </article>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center">
+          <div className="p-6 rounded-lg shadow-lg text-center modal">
+            <h2 className="text-2xl font-bold mb-4 modal-text">{hero.name} added to your team!</h2>
+            <button
+              className="bg-custom-blue hover:bg-custom-blue text-white font-400 py-2 px-4 rounded"
+              onClick={() => setShowModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   ) : (
     <p>No hero found.</p>
