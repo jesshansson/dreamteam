@@ -10,7 +10,7 @@ export function Footer() {
     // Väljer ett slumpmässigt citat från JSON-filen
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setRandomQuote(quotes[randomIndex]);
-  }, [location]); //location som beroende så att useEffect triggas varje gång man byter sida
+  }, [location]); //location som beroende så att useEffect triggas varje gång URL(sidan) byts
 
   return (
     <footer className="footer">

@@ -1,13 +1,13 @@
 interface PaginationProps {
-  totalPages: number; // Totalt antal sidor
-  currentPage: number; // Den aktuella sidan som användaren är på
-  setCurrentPage: (page: number) => void; // Funktion för att byta sida
+  totalPages: number; 
+  currentPage: number; 
+  setCurrentPage: (page: number) => void; 
 }
 
 export function Pagination({ totalPages, currentPage, setCurrentPage }: PaginationProps) {
   const pageNumbers = [];
 
-  // Skapa en array med sidnummer som vi kan visa
+  // Skapa en array med sidnummer 
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }

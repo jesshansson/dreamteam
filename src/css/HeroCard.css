@@ -49,9 +49,9 @@
 
     p {
       text-decoration: none;
-      background: linear-gradient(to right, rgba(23, 0, 105, 0.664), rgba(23, 0, 105, 0.664)),
+      background: linear-gradient(to right, rgba(117, 94, 197, 0.664), rgba(23, 0, 105, 0.664)),
         linear-gradient(to right, rgb(44, 161, 182), rgb(128, 169, 202), rgb(88, 98, 213));
-      background-size: 100% 1px, 0 1px;
+      background-size: 100% 2px, 0 2px;
       background-position: 100% 100%, 0 100%;
       background-repeat: no-repeat;
       transition: 0.2s ease-in-out;

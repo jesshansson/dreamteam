@@ -3,6 +3,7 @@ import { useHeroes } from "../context/HeroContext";
 import { EditHeroForm } from "../components/EditHeroForm";
 import { IHero } from "../interface";
 
+
 export function EditHeroPage() {
   const { slug } = useParams();
   const { teamHeroes, updateHero } = useHeroes();

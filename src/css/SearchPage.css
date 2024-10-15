@@ -1,8 +1,5 @@
-.form-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.search-header {
+  margin-right: 0;
 }
 
 .search-results {
@@ -27,8 +24,10 @@
 }
 
 .search-form {
-  align-self: center;
-  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 2rem 10rem;
   font-family: "Playpen Sans", cursive;
   background-color: #1b3b73d3;
@@ -105,6 +104,7 @@
   text-align: center;
   font-size: 1.5rem;
   font-family: "Playpen Sans", cursive;
+  font-weight: 600;
 }
 
 @media (max-width: 1100px) {

@@ -8,24 +8,24 @@ export function SearchPage() {
   const { heroes, loading } = useHeroes();
   const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [heroesPerPage] = useState(20); // Antal hjältar per sida
+  const [heroesPerPage] = useState(20);
   const [searchDone, setSearchDone] = useState(false);
 
   const handleSearch = (alignment: string, powerstat: string, name: string, race: string) => {
     setSearchDone(true);
     let result = heroes;
 
-    // Om ett namn har angetts, filtrera på namn
+    // Sök på namn
     if (name) {
       result = result.filter((hero) => hero.name.toLowerCase().includes(name.toLowerCase()));
     }
 
-    // Om alignment har valts, filtrera baserat på det (good/bad)
+    // Filtrera baserat på alignment (good/bad)
     if (alignment) {
       result = result.filter((hero) => hero.biography.alignment === alignment);
     }
 
-    // Om en powerstat har valts, filtrera baserat på den valda
+    // Filtrera på powerstat
     if (powerstat) {
       result = result.filter((hero) => {
         if (powerstat === "strength") return hero.powerstats.strength > 80;
@@ -35,7 +35,7 @@ export function SearchPage() {
       });
     }
 
-    // Filtrera på race
+    // Filtrera på human vs non-human
     if (race) {
       result = result.filter((hero) => {
         if (race === "human") return hero.appearance.race?.toLowerCase() === "human";
@@ -45,8 +45,6 @@ export function SearchPage() {
       });
     }
 
-    // Begränsa till 50 hjältar
-    // result = result.slice(0, 50);
     setFilteredHeroes(result); // Uppdatera resultaten
   };
 
@@ -65,7 +63,7 @@ export function SearchPage() {
 
   return (
     <>
-      <h1>Search Heroes</h1>
+      <h1 className="search-header">Search Heroes</h1>
       <section className="form-container">
         <SearchForm onSearch={handleSearch} />
       </section>

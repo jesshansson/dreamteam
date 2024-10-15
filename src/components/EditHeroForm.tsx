@@ -2,7 +2,7 @@ import { useState, FormEvent } from "react";
 import { IHero } from "../interface";
 
 interface EditHeroFormProps {
-  hero: IHero; 
+  hero: IHero;
   onSubmit: (data: IHero) => void;
 }
 
@@ -23,7 +23,7 @@ export function EditHeroForm({ hero, onSubmit }: EditHeroFormProps) {
     e.preventDefault();
 
     const updatedHero: IHero = {
-      ...hero, // Sprid ut alla befintliga egenskaper från 'hero'. Genom att använda ...hero kan vi kopiera alla befintliga värden och bara ändra det vi vill uppdatera.
+      ...hero, // Sprid ut alla befintliga egenskaper från 'hero'. Genom att använda ""...hero" kan vi kopiera alla befintliga värden och bara ändra det vi vill uppdatera.
       name,
       biography: {
         ...hero.biography, // Behåll alla befintliga egenskaper i 'biography'
@@ -56,6 +56,7 @@ export function EditHeroForm({ hero, onSubmit }: EditHeroFormProps) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter hero alias"
+          required
         />
       </fieldset>
 
