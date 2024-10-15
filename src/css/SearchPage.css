@@ -31,9 +31,10 @@
   justify-self: center;
   padding: 2rem 10rem;
   font-family: "Playpen Sans", cursive;
-  background-color: #1b3b73bb;
+  background-color: #1b3b73d3;
   margin: 1rem 2rem 3rem 2rem;
   border-radius: 10px;
+  border: 1px solid #1e0335;
 
   label {
     font-size: 1.2rem;

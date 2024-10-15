@@ -9,12 +9,13 @@
 .welcome-msg {
   padding: 1rem 5rem;
   font-family: "Playpen Sans", cursive;
-  background-color: #1b3b73bb;
+  background-color: #1b3b73d3;
   margin: 2rem;
   border-radius: 10px;
   max-width: 30rem;
   text-align: center;
   font-size: 1.1rem;
+  border: 1px solid #1e0335;
 
   h1 {
     font-size: 2rem;

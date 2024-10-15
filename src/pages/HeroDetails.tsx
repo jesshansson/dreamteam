@@ -7,19 +7,28 @@ import { BackButton } from "../components/BackButton";
 
 export function HeroDetails() {
   const { slug } = useParams(); // Hämta slug från URL:en
-  const { heroes, customHeroes, addHeroToTeam, removeHeroFromTeam, loading, isHeroInTeam } =
-    useHeroes(); // Hämta hjälteinformationen från Context
+  const {
+    heroes,
+    customHeroes,
+    teamHeroes,
+    addHeroToTeam,
+    removeHeroFromTeam,
+    loading,
+    isHeroInTeam,
+  } = useHeroes(); // Hämta hjälteinformationen från Context
   const [hero, setHero] = useState<IHero | null>(null); // State för att lagra den valda hjälten
 
   useEffect(() => {
-    if ((heroes.length > 0 || customHeroes.length > 0) && slug) {
-      // Leta efter hjälten i både heroes och customHeroes
+    if ((heroes.length > 0 || customHeroes.length > 0 || teamHeroes.length > 0) && slug) {
+      // Leta först i teamHeroes för att få den uppdaterade versionen av hjälten
       const selectedHero =
+        teamHeroes.find((hero) => hero.slug === slug) || // Kontrollera teamHeroes först
         heroes.find((hero) => hero.slug === slug) ||
         customHeroes.find((hero) => hero.slug === slug);
+
       setHero(selectedHero || null); // Sätt den valda hjälten eller null om den inte finns
     }
-  }, [heroes, customHeroes, slug]); // Denna effect körs om heroes, customHeroes eller slug ändras
+  }, [heroes, customHeroes, teamHeroes, slug]); // Denna effect körs om heroes, customHeroes eller slug ändras
 
   const handleAddToFavorites = () => {
     if (hero) {

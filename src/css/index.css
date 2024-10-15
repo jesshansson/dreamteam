@@ -17,7 +17,7 @@ body,
 #page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Se till att sidan täcker hela höjden */
+  min-height: 100vh;
 }
 
 #content-wrap {
@@ -28,7 +28,8 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: black;
-  background-color: #fefcf3;
+  background-color: rgba(255, 255, 255, 0.021);
+  background-blend-mode: lighten;
   margin: 0;
   background-image: url("../assets/bg.jpg");
   background-size: cover;

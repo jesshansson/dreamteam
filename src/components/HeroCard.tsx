@@ -36,6 +36,11 @@ export function HeroCard({
     removeHeroFromTeam(hero.id); // Ta bort hjälten från teamet
   };
 
+  const attributes = [];
+  if (hero.powerstats.intelligence > 80) attributes.push("Intelligent");
+  if (hero.powerstats.strength > 80) attributes.push("Strong");
+  if (hero.powerstats.speed > 80) attributes.push("Fast");
+
   return hero ? (
     <main>
       <article className="hero-card">
@@ -47,6 +52,13 @@ export function HeroCard({
           Alignment:{" "}
           {hero.biography.alignment.charAt(0).toUpperCase() + hero.biography.alignment.slice(1)}
         </p>
+
+        {attributes.length > 0 && (
+          <p className="power-attributes">
+            <span className="material-symbols-outlined star">star</span>
+            {attributes.join(", ")}
+          </p>
+        )}
 
         {showSeeDetails && (
           <Link to={`/hero/${hero.slug}`} className="details-link">

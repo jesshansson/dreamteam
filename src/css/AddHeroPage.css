@@ -31,8 +31,6 @@
 
   .add-hero-input,
   .edit-hero-input {
-    /* border: 1px solid rgba(0, 0, 0, 0.158);
-    margin: 2px 0; */
     border: 0;
     margin: 0;
     padding: 0.5rem 0;
