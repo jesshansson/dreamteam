@@ -52,7 +52,7 @@ export function SearchForm({ onSearch }: SearchFormProps) {
               checked={race === "alien"}
               onChange={() => setRace("alien")}
             />
-            Non-human/Undefined
+            Non-human
           </label>
         </div>
 
@@ -64,58 +64,8 @@ export function SearchForm({ onSearch }: SearchFormProps) {
           placeholder="Enter hero name"
         />
 
-        {/* Ändra knappen till type="submit" */}
         <button type="submit">Search</button>
       </form>
     </main>
   );
 }
-
-//   return (
-//     <main className="search-form">
-//       <label>Choose alignment:</label>
-//       <select value={alignment} onChange={(e) => setAlignment(e.target.value)}>
-//         <option value="">Select</option>
-//         <option value="good">Good</option>
-//         <option value="bad">Bad</option>
-//       </select>
-
-//       <label>Choose main power:</label>
-//       <select value={powerstat} onChange={(e) => setPowerstat(e.target.value)}>
-//         <option value="">Select</option>
-//         <option value="strength">Strength</option>
-//         <option value="intelligence">Intelligence</option>
-//         <option value="speed">Speed</option>
-//       </select>
-//       <div className="human-alien-btn">
-//         <p className="human-alien-headline">Human? </p>
-//         <label>
-//           <input
-//             type="radio"
-//             value="human"
-//             checked={race === "human"}
-//             onChange={() => setRace("human")}
-//           />
-//           Human
-//         </label>
-//         <label>
-//           <input
-//             type="radio"
-//             value="alien"
-//             checked={race === "alien"}
-//             onChange={() => setRace("alien")}
-//           />
-//           Non-human
-//         </label>
-//       </div>
-//       <label>Search by name:</label>
-//       <input
-//         type="text"
-//         value={name}
-//         onChange={(e) => setName(e.target.value)}
-//         placeholder="Enter hero name"
-//       />
-//       <button onClick={handleSearch}>Search</button>
-//     </main>
-//   );
-// }

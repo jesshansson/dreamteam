@@ -8,7 +8,7 @@ export function SearchPage() {
   const { heroes, loading } = useHeroes();
   const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [heroesPerPage] = useState(20);
+  const [heroesPerPage] = useState(25);
   const [searchDone, setSearchDone] = useState(false);
 
   const handleSearch = (alignment: string, powerstat: string, name: string, race: string) => {
