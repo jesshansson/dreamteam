@@ -94,6 +94,32 @@ a:hover {
   transition: none;
 }
 
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2855a3;
+  color: #f3dec6;
+  border: 1px solid #f3dec63a;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #0e71db;
+}
+
+@media (min-width: 758px) {
+  .back-to-top-btn {
+    display: none;
+  }
+}
+
 /*Scrollbar*/
 ::-webkit-scrollbar {
   width: 16px;

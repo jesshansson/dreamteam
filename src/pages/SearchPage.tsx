@@ -11,6 +11,13 @@ export function SearchPage() {
   const [heroesPerPage] = useState(25);
   const [searchDone, setSearchDone] = useState(false);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const handleSearch = (alignment: string, powerstat: string, name: string, race: string) => {
     setSearchDone(true);
     let result = heroes;
@@ -116,6 +123,9 @@ export function SearchPage() {
           </>
         )}
       </section>
+      <button className="scroll-to-top-btn" onClick={scrollToTop}>
+        <span className="material-symbols-outlined arrow">arrow_upward</span> Top
+      </button>
     </>
   );
 }

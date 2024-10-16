@@ -18,6 +18,14 @@ export function MyTeam() {
     </>;
   }
 
+  // Funktion som rullar till toppen av fönstret
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       <main className="my-team-container">
@@ -26,9 +34,9 @@ export function MyTeam() {
         <section className="navigation">
           <p>- Navigation -</p>
           <div className="navigation-buttons">
-            <a href="#created-members">Created Members</a>
-            <a href="#recruits">Recruits</a>
-            <a href="#statistics-container">Statistics</a>
+            <a href="#created-members">⋆ Created Members</a>
+            <a href="#recruits">⋆ Recruits</a>
+            <a href="#statistics-container">⋆ Statistics</a>
           </div>
         </section>
 
@@ -95,6 +103,9 @@ export function MyTeam() {
             Back to top
           </button>
         </section>
+        <button className="scroll-to-top-btn" onClick={scrollToTop}>
+          <span className="material-symbols-outlined arrow">arrow_upward</span> Top
+        </button>
       </main>
     </>
   );
