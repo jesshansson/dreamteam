@@ -121,25 +121,35 @@ h1 {
     grid-template-columns: 1fr 1fr;
     max-width: 700px;
   }
+}
 
-  @media (max-width: 757px) {
-    .created-heroes,
-    .favorite-heroes {
-      grid-template-columns: 1fr;
-    }
+@media (max-width: 757px) {
+  .created-heroes,
+  .favorite-heroes {
+    grid-template-columns: 1fr;
+  }
 
-    .statistics {
-      flex-direction: column;
-      padding: 0 1rem;
-      padding:0 2rem 3rem 2rem;
-      margin: 1rem 1rem 3rem 1rem;
-      max-width: 18rem;
-    }
+  .statistics {
+    flex-direction: column;
+    padding: 0 1rem;
+    padding: 0 2rem 3rem 2rem;
+    margin: 1rem 1rem 3rem 1rem;
+    max-width: 20rem;
+  }
 
-    .navigation-buttons {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
+  .navigation-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .statistics {
+    max-width: 15rem;
+
+    h3 {
+      font-size: 1.3rem;
     }
   }
 }

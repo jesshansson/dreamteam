@@ -5,7 +5,7 @@ import { useHeroes } from "../../context/HeroContext";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function PowerstatsChart() {
-  const { teamHeroes } = useHeroes(); // Hämta hjältarna från context 
+  const { teamHeroes } = useHeroes(); // Hämta hjältarna från context
 
   // Summera powerstats för hela teamet
   const totalPowerstats = teamHeroes.reduce(
@@ -39,7 +39,7 @@ export function PowerstatsChart() {
       legend: {
         labels: {
           font: {
-            size: 16, 
+            size: 17,
             weight: 400,
             family: "Playpen Sans",
           },

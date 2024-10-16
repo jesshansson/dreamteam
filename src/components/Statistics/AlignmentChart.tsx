@@ -22,11 +22,7 @@ export function AlignmentChart() {
   );
 
   const data = {
-    labels: [
-      "Good",
-      "Bad",
-      "Neutral"
-    ],
+    labels: ["Good", "Bad", "Neutral"],
     datasets: [
       {
         data: [alignmentCount.good, alignmentCount.bad, alignmentCount.neutral],
@@ -41,11 +37,14 @@ export function AlignmentChart() {
       legend: {
         labels: {
           font: {
-            size: 16, 
+            size: 17,
             weight: 400,
             family: "Playpen Sans",
           },
           color: "white",
+        },
+        layout: {
+          padding: 30,
         },
       },
     },
