@@ -28,23 +28,55 @@ ul {
 h1 {
   text-align: center;
   font-family: "Oooh Baby", cursive;
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 
 .my-team-container {
   max-width: 1000px;
   margin: 0 auto;
   padding-bottom: 3rem;
+
+  .heroes-headline {
+    font-family: "Combo", display;
+    font-weight: 600;
+    font-size: 2.2rem;
+    text-align: center;
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #1b3b73d3;
+  border-radius: 10px;
+  padding: 0 3rem 1rem 3rem;
+  border: 1px solid #1e0335;
+
+  p {
+    font-family: "Playpen Sans", cursive;
+    font-size: 1.1rem;
+  }
+
+  .navigation-buttons {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      font-family: "Playpen Sans", cursive;
+      font-size: 1.2rem;
+    }
+
+    a:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+      text-decoration: underline;
+    }
+  }
 }
 
 .my-team-add-btn {
   margin: 1rem 0;
-}
-
-.heroes-headline {
-  font-family: "Combo", display;
-  font-weight: 600;
-  font-size: 2.2rem;
 }
 
 .remove-btn:hover {
@@ -58,6 +90,30 @@ h1 {
   justify-content: space-between;
 }
 
+.statistics {
+  text-align: center;
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  background-color: #1b3b73d3;
+  border-radius: 10px;
+  padding: 1rem 3rem 3rem 3rem;
+  border: 1px solid #1e0335;
+  h3 {
+    font-family: "Playpen Sans", cursive;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+}
+
+#created-members,
+#recruits,
+#statistics-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 @media (max-width: 1000px) {
   .created-heroes,
   .favorite-heroes {
@@ -69,6 +125,18 @@ h1 {
     .created-heroes,
     .favorite-heroes {
       grid-template-columns: 1fr;
+    }
+
+    .statistics {
+      flex-direction: column;
+      padding: 1rem;
+      width: 80%;
+    }
+
+    .navigation-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
     }
   }
 }

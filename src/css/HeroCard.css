@@ -90,11 +90,11 @@
     font-weight: 400;
     display: flex;
     gap: 0.2rem;
-    align-items: center;
+    align-items: flex-start;
 
-    /* .star {
-      color: #e6b30d;
-    } */
+    .star {
+      color: #020a66;
+    }
   }
   @media (max-width: 757px) {
     max-width: 20rem;

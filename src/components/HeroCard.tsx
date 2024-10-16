@@ -72,6 +72,7 @@ export function HeroCard({
             <p>Occupation: {hero.work.occupation}</p>
             <p>Race: {hero.appearance.race}</p>
             <p>Associates: {hero.connections.groupAffiliation}</p>
+            <p>Relatives: {hero.connections.relatives}</p>
 
             <div className="powerstats">
               <p>
@@ -80,6 +81,7 @@ export function HeroCard({
               <p>Intelligence: {hero.powerstats.intelligence}</p>
               <p>Strength: {hero.powerstats.strength}</p>
               <p>Speed: {hero.powerstats.speed}</p>
+              <p>Combat: {hero.powerstats.combat}</p>
             </div>
           </>
         )}
