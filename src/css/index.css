@@ -120,6 +120,12 @@ a:hover {
   }
 }
 
+@media (max-width: 757px) {
+  .scroll-to-top-btn {
+    display: none;
+  }
+}
+
 /*Scrollbar*/
 ::-webkit-scrollbar {
   width: 16px;
