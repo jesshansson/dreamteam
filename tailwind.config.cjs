@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         "custom-blue": "#0a2857",
       },
+      fontFamily: {
+        cursive: ['"Playpen Sans"', "cursive"],
+      },
     },
   },
   plugins: [],
