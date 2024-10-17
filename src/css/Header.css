@@ -8,7 +8,7 @@
   justify-content: space-between;
   border-bottom: 2px solid #1e0335;
   position: relative;
-
+  
   h1 {
     font-size: 3.2rem;
     font-family: "Oooh Baby", cursive;
@@ -16,6 +16,7 @@
     margin: 0 0 0 2rem;
   }
 }
+
 
 .logo-title {
   display: flex;

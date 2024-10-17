@@ -14,7 +14,7 @@ export function Header() {
       <div className="logo-title flex flex-col items-center">
         <img src={logo} alt="Logo" className="src" />
         <Link to={"/"}>
-          <h1 className="text-center">Dream Team</h1>
+          <h1>Dream Team</h1>
         </Link>
       </div>
 

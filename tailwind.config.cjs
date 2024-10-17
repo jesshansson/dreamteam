@@ -12,6 +12,15 @@ module.exports = {
       fontFamily: {
         cursive: ['"Playpen Sans"', "cursive"],
       },
+      animation: {
+        shimmer: "shimmer 3s ease-in-out infinite", // Lägg till shimmer-animationen
+      },
+      keyframes: {
+        shimmer: {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" },
+        },
+      },
     },
   },
   plugins: [],

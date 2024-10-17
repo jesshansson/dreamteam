@@ -7,6 +7,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export function AlignmentChart() {
   const { teamHeroes } = useHeroes();
 
+  //Räknar hur många hjältar som har var och en av alignments genom att loopa igenom varje hjälte i teamet.
   const alignmentCount = teamHeroes.reduce(
     (acc, hero) => {
       if (hero.biography.alignment === "good") {
@@ -20,6 +21,7 @@ export function AlignmentChart() {
     },
     { good: 0, bad: 0, neutral: 0 }
   );
+  //acc (accumulate) är en variabel som håller reda på hur många hjältar i teamet som är goda, onda eller neutrala. Efter varje loop, justeras värdena i acc (som startar på 0).
 
   const data = {
     labels: ["Good", "Bad", "Neutral"],

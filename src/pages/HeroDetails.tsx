@@ -17,6 +17,7 @@ export function HeroDetails() {
     isHeroInTeam,
   } = useHeroes(); // Hämta hjälteinformationen från Context
   const [hero, setHero] = useState<IHero | null>(null); // State för att lagra den valda hjälten
+  const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
     if ((heroes.length > 0 || customHeroes.length > 0 || teamHeroes.length > 0) && slug) {
@@ -33,6 +34,11 @@ export function HeroDetails() {
   const handleAddToFavorites = () => {
     if (hero) {
       addHeroToTeam(hero); // Lägg till hjälten som favorit
+      setShowAnimation(true); // Visa popup-rutan
+
+      setTimeout(() => {
+        setShowAnimation(false); // Döljer popup-rutan efter 2 sekunder
+      }, 2000);
     }
   };
 
@@ -59,6 +65,14 @@ export function HeroDetails() {
         <button className="add-remove-favorite" onClick={handleAddToFavorites}>
           Add to My Team
         </button>
+      )}
+
+      {showAnimation && (
+        <div className="fixed inset-0 flex items-center justify-center">
+          <div className="p-5 bg-custom-blue bg-opacity-80 text-white text-lg modal-text rounded-lg shadow-lg opacity-0 animate-fade-in-out">
+            {hero.name} added to your team!
+          </div>
+        </div>
       )}
       <BackButton />
     </main>

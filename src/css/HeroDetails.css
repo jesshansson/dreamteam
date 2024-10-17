@@ -1,3 +1,36 @@
 .add-remove-favorite {
   margin-bottom: 3rem;
 }
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 2s ease-in-out;
+}
+
+.modal {
+  background-color: #1b3b73d3;
+}
+.modal-text {
+  color: white;
+  font-family: "Oooh Baby", cursive;
+  font-size: 2rem;
+  margin: 1rem;
+
+  @media (max-width: 757px) {
+    font-size: 1.8rem;
+  }
+}

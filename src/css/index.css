@@ -114,6 +114,44 @@ a:hover {
   background-color: #0e71db;
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top right;
+  }
+}
+
+.shimmer-text {
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 3.2rem;
+  margin: 0 0 0 2rem;
+  background: linear-gradient(
+    to right,
+    #ed8080 0%,
+    #2a77d6 16%,
+    #5eb524 32%,
+    #eacd25 48%,
+    #ed8080 64%,
+    #2a77d6 80%,
+    #5eb524 100%
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 10s linear infinite;
+  font-weight: 600;
+}
+
+
+h1 {
+  text-align: center;
+  font-family: "Oooh Baby", cursive;
+  margin: 2rem 0;
+}
+
+
 @media (min-width: 758px) {
   .back-to-top-btn {
     display: none;
@@ -125,6 +163,8 @@ a:hover {
     display: none;
   }
 }
+
+
 
 /*Scrollbar*/
 ::-webkit-scrollbar {

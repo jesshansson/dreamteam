@@ -34,9 +34,9 @@ export function MyTeam() {
         <section className="navigation">
           <p>- Navigation -</p>
           <div className="navigation-buttons">
-            <a href="#created-members">⋆ Created Members</a>
-            <a href="#recruits">⋆ Recruits</a>
-            <a href="#statistics-container">⋆ Statistics</a>
+            <a href="#created-members">★ Created Members</a>
+            <a href="#recruits">★ Recruits</a>
+            <a href="#statistics-container">★ Statistics</a>
           </div>
         </section>
 

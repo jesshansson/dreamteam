@@ -12,7 +12,7 @@ export function StartPage() {
   useEffect(() => {
     if (heroes.length > 0) {
       const randomIndex = Math.floor(Math.random() * heroes.length);
-      setCurrentHero(heroes[randomIndex]); //Den slumpade hjälten sätts som currenthero
+      setCurrentHero(heroes[randomIndex]); //Den slumpade hjälten sätts som currentHero
     }
   }, [heroes]);
 
@@ -22,8 +22,8 @@ export function StartPage() {
 
   return (
     <main>
-      <div className="welcome-msg">
-        <h1>Welcome to Dream Team HQ!</h1>
+      <div className="welcome-msg ">
+        <h1 className="shimmer-text">Welcome to Dream Team HQ!</h1>
         <p>
           Ready to unleash your inner hero (or villain)? It’s time to assemble your ultimate squad!
           Create your own legendary characters or recruit from the world’s greatest heroes and

@@ -23,7 +23,7 @@
   }
 }
 
-.modal {
+.start-modal {
   background-color: #dedfe9;
   margin: 0 1.5rem;
   display: flex;
@@ -37,7 +37,7 @@
     width: fit-content;
   }
 
-  .modal-text {
+  .start-modal-text {
     color: black;
     font-family: "Oooh Baby", cursive;
     font-size: 2rem;

@@ -28,7 +28,7 @@ export function HeroCard({
   const [showModal, setShowModal] = useState(false);
 
   const handleAddToFavorites = () => {
-    addHeroToTeam(hero); // Lägg till hjälten i favoriter/team
+    addHeroToTeam(hero); // Lägg till hjälten i teamet
     setShowModal(true);
   };
 
@@ -96,16 +96,29 @@ export function HeroCard({
               Add to My Team
             </button>
           ))}
-
-        <div className="edit-delete">
+        <div className="edit-delete relative flex justify-center">
           {showEditButton && isHeroInTeam(hero.id) && (
-            <button className="edit-btn" onClick={() => navigate(`/edit-hero/${hero.slug}`)}>
-              <span className="material-symbols-outlined editBtn">edit</span>
+            <button
+              className="edit-btn relative group flex items-center justify-center"
+              onClick={() => navigate(`/edit-hero/${hero.slug}`)}
+            >
+              <span className="material-symbols-outlined editBtn text-2xl">edit</span>
+              {/* Tooltip */}
+              <span className="absolute bottom-full transform -translate-x-1/2 mb-2 p-1 bg-custom-blue text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                Edit
+              </span>
             </button>
           )}
           {showRemoveButton && onRemove && (
-            <button className="remove-btn" onClick={onRemove}>
-              <span className="material-symbols-outlined deleteBtn">delete</span>
+            <button
+              className="remove-btn relative group flex items-center justify-center"
+              onClick={onRemove}
+            >
+              <span className="material-symbols-outlined deleteBtn text-2xl">delete</span>
+              {/* Tooltip */}
+              <span className="absolute bottom-full transform -translate-x-1/2 mb-2 p-1 bg-custom-blue text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                Remove
+              </span>
             </button>
           )}
         </div>
@@ -114,8 +127,8 @@ export function HeroCard({
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center">
-          <div className="p-6 rounded-lg shadow-lg text-center modal">
-            <h2 className="text-2xl font-bold mb-4 modal-text">{hero.name} added to your team!</h2>
+          <div className="p-6 rounded-lg shadow-lg text-center start-modal">
+            <h2 className="text-2xl font-bold mb-4 start-modal-text">{hero.name} added to your team!</h2>
             <button
               className="bg-custom-blue hover:bg-custom-blue text-white font-400 py-2 px-4 rounded"
               onClick={() => setShowModal(false)}
