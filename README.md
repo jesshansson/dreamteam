@@ -10,12 +10,13 @@ In this project, I created a React web app that allows users to explore superher
 - Remove or update superheroes from your team.
 - Team statistics page.
 
-#### Technologies:
+#### Tech:
 
 - React.js
 - TypeScript
 - Context for global state management
 - localStorage
+- React router loader
 - API: [Superhero API](https://github.com/akabab/superhero-api)
 - Tailwind CSS components (but mostly vanilla CSS)
 - Chart.js

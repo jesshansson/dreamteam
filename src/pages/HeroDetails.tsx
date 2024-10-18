@@ -6,15 +6,15 @@ import { IHero } from "../interface";
 import { BackButton } from "../components/BackButton";
 
 export function HeroDetails() {
-  const hero = useLoaderData() as IHero; // Använd loader-datan
-  const { addHeroToTeam, removeHeroFromTeam, isHeroInTeam } = useHeroes(); // Använd HeroContext för teamlogik
+  const hero = useLoaderData() as IHero; // Använd loader för info om hjälten
+  const { addHeroToTeam, removeHeroFromTeam, isHeroInTeam } = useHeroes(); // Använd HeroContext för teamlogiken
 
-  const [showAnimation, setShowAnimation] = useState(false); // State för att visa animation vid tillägg till teamet
+  const [showAnimation, setShowAnimation] = useState(false);
 
   const handleAddToFavorites = () => {
     if (hero) {
-      addHeroToTeam(hero); // Lägg till hjälten i teamet
-      setShowAnimation(true); // Visa popup-rutan för animation
+      addHeroToTeam(hero);
+      setShowAnimation(true);
 
       setTimeout(() => {
         setShowAnimation(false); // Döljer popup-rutan efter 2 sekunder
@@ -24,7 +24,7 @@ export function HeroDetails() {
 
   const handleRemoveFromFavorites = () => {
     if (hero) {
-      removeHeroFromTeam(hero.id); // Ta bort hjälten från teamet
+      removeHeroFromTeam(hero.id);
     }
   };
 

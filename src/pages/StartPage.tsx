@@ -5,7 +5,7 @@ import { IHero } from "../interface";
 import { useLoaderData } from "react-router-dom";
 
 export function StartPage() {
-  const initialHero = useLoaderData() as IHero; // Hämta den första slumpmässiga hjälten från loadern
+  const initialHero = useLoaderData() as IHero; // Hämta den första slumpmässiga hjälten från loadern ("randomHero" i loadern)
   const [currentHero, setCurrentHero] = useState<IHero>(initialHero); // Lokalt state för att hantera knappen som hämtar nya hjältar
 
   return (

@@ -1,4 +1,4 @@
-//Loader för StartPage (Random Hero)
+//Loader för StartPage (För att få en slumpmässig hjälte)
 
 export const getRandomHeroLoader = async () => {
   const API_URL = "https://akabab.github.io/superhero-api/api/all.json";

@@ -1,4 +1,4 @@
-// Loader för HeroDetails (hjälte baserat på slug):
+// Loader för HeroDetails, letar efter hjälte i viss ordning.
 
 import { IHero } from "../interface";
 
@@ -13,9 +13,10 @@ export const getHeroLoader = async ({ params }: any) => {
     }
 
     const apiHeroes = await response.json();
-    // Hämta skapade hjältar från localStorage
-    const customHeroes = JSON.parse(localStorage.getItem("customHeroes") || "[]");
-    const teamHeroes = JSON.parse(localStorage.getItem("teamHeroes") || "[]"); // Hämta teamhjältar (uppdaterade API-hjältar)
+
+    // Hämta hjältar från localStorage (om ingen data finns, sätts en tom array som standardvärde)
+    const customHeroes = JSON.parse(localStorage.getItem("customHeroes") || "[]"); // Skapade hjältar
+    const teamHeroes = JSON.parse(localStorage.getItem("teamHeroes") || "[]"); // Hjältar som användaren har lagt till i sitt team, inklusive uppdaterade versioner av API-hjältar.
 
     // Hitta hjälten i teamHeroes först, om det finns en uppdaterad version
     const hero =
