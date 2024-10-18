@@ -48,7 +48,7 @@ export function HeroCard({
         <img src={hero.images.lg || "/logo.png"} alt={hero.name} />
         <p>Full name: {hero.biography.fullName}</p>
         <p>Aliases: {hero.biography.aliases.join(", ")}</p>
-        <p className={`alignment ${hero.biography.alignment}`}>
+        <p className={`alignment ${hero.biography.alignment.toLowerCase()}`}>
           Alignment:{" "}
           {hero.biography.alignment.charAt(0).toUpperCase() + hero.biography.alignment.slice(1)}
         </p>
@@ -128,7 +128,9 @@ export function HeroCard({
       {showModal && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center">
           <div className="p-6 rounded-lg shadow-lg text-center start-modal">
-            <h2 className="text-2xl font-bold mb-4 start-modal-text">{hero.name} added to your team!</h2>
+            <h2 className="text-2xl font-bold mb-4 start-modal-text">
+              {hero.name} added to your team!
+            </h2>
             <button
               className="bg-custom-blue hover:bg-custom-blue text-white font-400 py-2 px-4 rounded"
               onClick={() => setShowModal(false)}

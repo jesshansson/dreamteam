@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { useHeroes } from "../context/HeroContext"; // Importera useHeroes för att få tillgång till heroes
 import { HeroCard, AlignmentChart, PowerstatsChart } from "../components";
+import { useHeroes } from "../context/HeroContext";
 
 export function MyTeam() {
-  const { customHeroes, teamHeroes, removeHeroFromTeam, loading } = useHeroes(); // Hämta både skapade hjältar och team/favorithjältar
+  const { customHeroes, teamHeroes, removeHeroFromTeam, loading } = useHeroes(); // Använder useHeroes för att hämta context-data
 
   if (loading) {
-    return <p>Loading heroes...</p>;
+    return <p>Loading heroes...</p>; // Visa laddningsmeddelande tills datan är hämtad
   }
 
   if (customHeroes.length === 0 && teamHeroes.length === 0) {

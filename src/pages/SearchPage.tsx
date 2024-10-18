@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useHeroes } from "../context/HeroContext";
 import { SearchForm, HeroCard, Pagination } from "../components";
 import { IHero } from "../interface";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export function SearchPage() {
-  const { heroes, loading } = useHeroes();
+  const heroes = useLoaderData() as IHero[]; 
   const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [heroesPerPage] = useState(25);
@@ -55,10 +54,9 @@ export function SearchPage() {
     setFilteredHeroes(result); // Uppdatera resultaten
   };
 
-  if (loading) {
+  if (heroes.length === 0) {
     return <p>Loading heroes...</p>;
   }
-
   // Pagineringen
   // Räkna ut var på sidan resultaten ska börja och sluta baserat på currentPage och heroesPerPage
   const indexOfLastHero = currentPage * heroesPerPage;
@@ -70,13 +68,13 @@ export function SearchPage() {
 
   return (
     <>
-      <h1 className="search-header">Search Heroes</h1>
+      <h1 className="search-header">Search Recruits</h1>
       <section className="form-container">
         <SearchForm onSearch={handleSearch} />
       </section>
       <section>
         {searchDone && filteredHeroes.length === 0 ? (
-          <p className="search-message">No heroes found. Try another search!</p>
+          <p className="search-message">No heroes or villains found. Try another search!</p>
         ) : (
           <>
             {filteredHeroes.length > 0 && (

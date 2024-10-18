@@ -16,16 +16,23 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
   const [intelligence, setIntelligence] = useState(0);
   const [strength, setStrength] = useState(0);
   const [speed, setSpeed] = useState(0);
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    // Om användaren inte fyllt i en bild-URL, sätt en standardbild
+    const heroImageUrl = imageUrl.trim() === "" ? "/logo.png" : imageUrl;
+
+    // Omvandla alignment till gemener för att matcha API:s format
+    const formattedAlignment = alignment.toLowerCase();
 
     // Skapa ett nytt hjälteobjekt med standardvärden för fälten användaren inte fyller i
     const newHero: IHero = {
       id: Math.random(), // Generera ett unikt id
       name: name,
       slug: name.toLowerCase().replace(/\s+/g, "-"), // Generera slug från namnet
-      powerstats: {
+      powerstats: { 
         intelligence: intelligence,
         strength: strength,
         speed: speed,
@@ -48,15 +55,15 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
         placeOfBirth: "",
         firstAppearance: "",
         publisher: "",
-        alignment: alignment,
+        alignment: formattedAlignment,
       },
       work: { occupation: occupation, base: "" },
       connections: { groupAffiliation: associates, relatives: "" },
       images: {
-        xs: "/logo.png",
-        sm: "/logo.png",
-        md: "/logo.png",
-        lg: "/logo.png",
+        xs: heroImageUrl,
+        sm: heroImageUrl,
+        md: heroImageUrl,
+        lg: heroImageUrl,
       },
       isCustom: true, // Flagg för att indikera att hjälten är skapad av användaren
     };
@@ -73,6 +80,16 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter hero alias"
           required
+        />
+      </fieldset>
+
+      <fieldset className="add-hero-input">
+        <label>Image URL (optional):</label>
+        <input
+          type="url"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+          placeholder="Enter image URL"
         />
       </fieldset>
 

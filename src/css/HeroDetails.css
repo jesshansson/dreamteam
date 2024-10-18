@@ -29,6 +29,7 @@
   font-family: "Oooh Baby", cursive;
   font-size: 2rem;
   margin: 1rem;
+  text-align: center;
 
   @media (max-width: 757px) {
     font-size: 1.8rem;
