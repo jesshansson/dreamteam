@@ -24,6 +24,7 @@ export function AlignmentChart() {
   );
   //acc (accumulate) är en variabel som håller reda på hur många hjältar i teamet som är goda, onda eller neutrala. Efter varje loop, justeras värdena i acc (som startar på 0).
 
+  // data = objekt som definierar vad som ska visas i cirkeldiagrammet. 
   const data = {
     labels: ["Good", "Bad", "Neutral"],
     datasets: [

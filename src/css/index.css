@@ -25,9 +25,8 @@ body,
 }
 
 body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Playpen Sans", cursive;
   font-weight: 400;
-  color: black;
   background-color: rgba(255, 255, 255, 0.021);
   background-blend-mode: lighten;
   margin: 0;
@@ -77,6 +76,15 @@ button:hover {
   }
   h1 {
     font-size: 3rem;
+  }
+
+  img {
+    width: 10rem;
+    height: auto;
+
+    @media (max-width: 757px) {
+      width: 8rem;
+    }
   }
 }
 
@@ -144,13 +152,11 @@ a:hover {
   font-weight: 600;
 }
 
-
 h1 {
   text-align: center;
   font-family: "Oooh Baby", cursive;
   margin: 2rem 0;
 }
-
 
 @media (min-width: 758px) {
   .back-to-top-btn {
@@ -163,8 +169,6 @@ h1 {
     display: none;
   }
 }
-
-
 
 /*Scrollbar*/
 ::-webkit-scrollbar {

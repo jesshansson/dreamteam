@@ -24,15 +24,6 @@
     }
   }
 
-  .accordion-btn {
-    color: #f0cca4;
-    font-weight: 400;
-    padding: 0.3rem 0.6rem;
-    background-color: #1b3c73;
-    box-shadow: 0px 0px 12px 0px rgba(240, 204, 164, 1);
-    margin: 0.5rem 0;
-  }
-
   .start-modal {
     background-color: #dedfe9;
     margin: 0 1.5rem;
