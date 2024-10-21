@@ -17,6 +17,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
   const [strength, setStrength] = useState(0);
   const [speed, setSpeed] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
+  const [combat, setCombat] = useState(0);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -32,7 +33,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
       id: Math.random(), // Generera ett unikt id
       name: name,
       slug: name.toLowerCase().replace(/\s+/g, "-"), // Generera slug från namnet
-      powerstats: { 
+      powerstats: {
         intelligence: intelligence,
         strength: strength,
         speed: speed,
@@ -119,7 +120,7 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
           type="text"
           value={alignment}
           onChange={(e) => setAlignment(e.target.value)}
-          placeholder="Good/Bad"
+          placeholder="Good/Bad/Neutral"
         />
       </fieldset>
 
@@ -183,6 +184,15 @@ export function HeroForm({ onSubmit }: HeroFormProps) {
             value={speed}
             onChange={(e) => setSpeed(parseInt(e.target.value) || 0)}
             placeholder="Enter speed"
+          />
+        </fieldset>
+        <fieldset className="add-hero-input">
+          <label>Combat (0-100):</label>
+          <input
+            type="number"
+            value={combat}
+            onChange={(e) => setCombat(parseInt(e.target.value) || 0)}
+            placeholder="Enter combat level"
           />
         </fieldset>
       </section>

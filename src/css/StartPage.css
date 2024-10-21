@@ -1,62 +1,72 @@
-.add-btn {
-  margin-top: 3rem;
-  align-self: center;
-  justify-self: center;
-  box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.356);
-}
-
-.welcome-msg {
-  padding: 1rem 5rem;
-  font-family: "Playpen Sans", cursive;
-  background-color: #1b3b73d3;
-  margin: 2rem;
-  border-radius: 10px;
-  max-width: 30rem;
-  text-align: center;
-  font-size: 1.1rem;
-  border: 1px solid #1e0335;
-
-  h1 {
-    font-size: 2rem;
-    margin: 1rem 0;
-  }
-}
-
-.start-modal {
-  background-color: #dedfe9;
-  margin: 0 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  button {
-    background-color: #1b3b73e1;
+.start-page {
+  .add-btn {
+    margin-top: 3rem;
+    align-self: center;
+    justify-self: center;
     box-shadow: none;
-    margin-top: 1rem;
-    width: fit-content;
+    border: 1px solid rgba(0, 0, 0, 0.356);
   }
 
-  .start-modal-text {
-    color: black;
-    font-family: "Oooh Baby", cursive;
-    font-size: 2rem;
-    margin: 1rem;
-
-    @media (max-width: 757px) {
-      font-size: 1.8rem;
-    }
-  }
-}
-
-@media (max-width: 757px) {
   .welcome-msg {
-    padding: 1rem 2rem;
-    margin: 1rem;
-    font-size: 1rem;
+    padding: 1rem 5rem;
+    font-family: "Playpen Sans", cursive;
+    background-color: #1b3b73d3;
+    margin: 2rem;
+    border-radius: 10px;
+    max-width: 30rem;
+    text-align: center;
+    font-size: 1.1rem;
+    border: 1px solid #1e0335;
 
     h1 {
-      font-size: 1.8rem;
+      font-size: 2.3rem;
+      margin: 1rem 0;
+    }
+  }
+
+  .accordion-btn {
+    color: #f0cca4;
+    font-weight: 400;
+    padding: 0.3rem 0.6rem;
+    background-color: #1b3c73;
+    box-shadow: 0px 0px 12px 0px rgba(240, 204, 164, 1);
+    margin: 0.5rem 0;
+  }
+
+  .start-modal {
+    background-color: #dedfe9;
+    margin: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      background-color: #1b3b73e1;
+      box-shadow: none;
+      margin-top: 1rem;
+      width: fit-content;
+    }
+
+    .start-modal-text {
+      color: black;
+      font-family: "Oooh Baby", cursive;
+      font-size: 2rem;
+
+      @media (max-width: 757px) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  @media (max-width: 757px) {
+    .welcome-msg {
+      padding: 1rem 2rem;
+      margin: 1rem;
+      font-size: 1rem;
+
+      h1 {
+        font-size: 1.8rem;
+      }
     }
   }
 }

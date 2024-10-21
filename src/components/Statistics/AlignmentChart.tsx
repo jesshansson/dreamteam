@@ -10,9 +10,10 @@ export function AlignmentChart() {
   //Räknar hur många hjältar som har var och en av alignments genom att loopa igenom varje hjälte i teamet.
   const alignmentCount = teamHeroes.reduce(
     (acc, hero) => {
-      if (hero.biography.alignment === "good") {
+      const alignment = hero.biography.alignment?.toLowerCase() || "neutral"; // Hanterar null/undefined
+      if (alignment === "good") {
         acc.good += 1;
-      } else if (hero.biography.alignment === "bad") {
+      } else if (alignment === "bad") {
         acc.bad += 1;
       } else {
         acc.neutral += 1;

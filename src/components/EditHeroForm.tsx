@@ -18,6 +18,7 @@ export function EditHeroForm({ hero, onSubmit }: EditHeroFormProps) {
   const [intelligence, setIntelligence] = useState(hero.powerstats.intelligence || 0);
   const [strength, setStrength] = useState(hero.powerstats.strength || 0);
   const [speed, setSpeed] = useState(hero.powerstats.speed || 0);
+  const [combat, setCombat] = useState(hero.powerstats.combat || 0);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -86,7 +87,7 @@ export function EditHeroForm({ hero, onSubmit }: EditHeroFormProps) {
           type="text"
           value={alignment}
           onChange={(e) => setAlignment(e.target.value)}
-          placeholder="Good/Bad"
+          placeholder="Good/Bad/Neutral"
         />
       </fieldset>
 
@@ -150,6 +151,15 @@ export function EditHeroForm({ hero, onSubmit }: EditHeroFormProps) {
             value={speed}
             onChange={(e) => setSpeed(parseInt(e.target.value) || 0)}
             placeholder="Enter speed"
+          />
+        </fieldset>
+        <fieldset className="edit-hero-input">
+          <label>Combat (0-100):</label>
+          <input
+            type="number"
+            value={combat}
+            onChange={(e) => setCombat(parseInt(e.target.value) || 0)}
+            placeholder="Enter combat level"
           />
         </fieldset>
       </section>
