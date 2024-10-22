@@ -4,7 +4,7 @@ import { IHero } from "../interface";
 import { Link, useLoaderData } from "react-router-dom";
 
 export function SearchPage() {
-  const heroes = useLoaderData() as IHero[]; 
+  const heroes = useLoaderData() as IHero[];
   const [filteredHeroes, setFilteredHeroes] = useState<IHero[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [heroesPerPage] = useState(25);

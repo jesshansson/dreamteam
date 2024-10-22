@@ -25,7 +25,6 @@ export function MyTeam() {
       behavior: "smooth",
     });
   };
-  console.log(teamHeroes);
 
   return (
     <>

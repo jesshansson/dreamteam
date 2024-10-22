@@ -6,5 +6,6 @@ export * from "./FetchNewHeroBtn";
 export * from "./Header";
 export * from "./SearchForm";
 export * from "./Pagination";
+export * from "./ScrollToTop";
 export * from "./Statistics/AlignmentChart";
 export * from "./Statistics/PowerstatsChart";

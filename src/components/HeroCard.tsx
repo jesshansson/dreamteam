@@ -72,7 +72,6 @@ export function HeroCard({
             <p>Occupation: {hero.work.occupation}</p>
             <p>Race: {hero.appearance.race}</p>
             <p>Associates: {hero.connections.groupAffiliation}</p>
-            <p>Relatives: {hero.connections.relatives}</p>
 
             <div className="powerstats">
               <p>
