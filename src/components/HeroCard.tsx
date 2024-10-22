@@ -80,7 +80,6 @@ export function HeroCard({
               <p>Intelligence: {hero.powerstats.intelligence}</p>
               <p>Strength: {hero.powerstats.strength}</p>
               <p>Speed: {hero.powerstats.speed}</p>
-              <p>Combat: {hero.powerstats.combat}</p>
             </div>
           </>
         )}
