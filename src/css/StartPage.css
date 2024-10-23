@@ -1,4 +1,26 @@
 .start-page {
+  .welcome-text {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+  }
+
+  .welcome-text.open {
+    max-height: 300px;
+  }
+
+  .welcome-text.closed {
+    max-height: 0;
+  }
+
+  .toggle-text-btn {
+    color: #dedfe9;
+    background-color: transparent;
+    box-shadow: none;
+    margin-top: 0.2rem;
+    padding: 0;
+  }
+
   .add-btn {
     margin: 1rem 0 1.2rem 0;
     align-self: center;
@@ -62,6 +84,10 @@
       h1 {
         font-size: 1.8rem;
       }
+    }
+
+    img {
+      width: 55%;
     }
   }
 }
